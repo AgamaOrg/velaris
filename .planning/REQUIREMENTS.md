@@ -151,70 +151,71 @@ Which phases cover which requirements. Filled by the roadmapper.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FOUND-01 | TBD | Pending |
-| FOUND-02 | TBD | Pending |
-| FOUND-03 | TBD | Pending |
-| FOUND-04 | TBD | Pending |
-| FOUND-05 | TBD | Pending |
-| FOUND-06 | TBD | Pending |
-| PUB-01 | TBD | Pending |
-| PUB-02 | TBD | Pending |
-| PUB-03 | TBD | Pending |
-| PUB-04 | TBD | Pending |
-| PUB-05 | TBD | Pending |
-| PUB-06 | TBD | Pending |
-| PUB-07 | TBD | Pending |
-| PUB-08 | TBD | Pending |
-| PUB-09 | TBD | Pending |
-| PUB-10 | TBD | Pending |
-| PUB-11 | TBD | Pending |
-| SEO-01 | TBD | Pending |
-| SEO-02 | TBD | Pending |
-| SEO-03 | TBD | Pending |
-| LEAD-01 | TBD | Pending |
-| LEAD-02 | TBD | Pending |
-| LEAD-03 | TBD | Pending |
-| LEAD-04 | TBD | Pending |
-| LEAD-05 | TBD | Pending |
-| AUTH-01 | TBD | Pending |
-| AUTH-02 | TBD | Pending |
-| AUTH-03 | TBD | Pending |
-| AUTH-04 | TBD | Pending |
-| CONS-01 | TBD | Pending |
-| CONS-02 | TBD | Pending |
-| CONS-03 | TBD | Pending |
-| OPS-01 | TBD | Pending |
-| OPS-02 | TBD | Pending |
-| OPS-03 | TBD | Pending |
-| OPS-04 | TBD | Pending |
-| OPS-05 | TBD | Pending |
-| OPS-06 | TBD | Pending |
-| OPS-07 | TBD | Pending |
-| OPS-08 | TBD | Pending |
-| OPS-09 | TBD | Pending |
-| OPS-10 | TBD | Pending |
-| INV-01 | TBD | Pending |
-| INV-02 | TBD | Pending |
-| INV-03 | TBD | Pending |
-| INV-04 | TBD | Pending |
-| INV-05 | TBD | Pending |
-| INV-06 | TBD | Pending |
-| CLIENT-01 | TBD | Pending |
-| CLIENT-02 | TBD | Pending |
-| CLIENT-03 | TBD | Pending |
-| KYC-01 | TBD | Pending |
-| KYC-02 | TBD | Pending |
-| KYC-03 | TBD | Pending |
-| CMS-01 | TBD | Pending |
-| CMS-02 | TBD | Pending |
-| KPI-01 | TBD | Pending |
-| KPI-02 | TBD | Pending |
-| KPI-03 | TBD | Pending |
+| FOUND-01 | Phase 1 | Pending |
+| FOUND-02 | Phase 1 | Pending |
+| FOUND-03 | Phase 1 | Pending |
+| FOUND-04 | Phase 1 | Pending |
+| FOUND-05 | Phase 1 | Pending |
+| FOUND-06 | Phase 1 | Pending |
+| PUB-01 | Phase 3 | Pending |
+| PUB-02 | Phase 3 | Pending |
+| PUB-03 | Phase 3 | Pending |
+| PUB-04 | Phase 3 | Pending |
+| PUB-05 | Phase 3 | Pending |
+| PUB-06 | Phase 3 | Pending |
+| PUB-07 | Phase 3 | Pending |
+| PUB-08 | Phase 3 | Pending |
+| PUB-09 | Phase 5 | Pending |
+| PUB-10 | Phase 3 | Pending |
+| PUB-11 | Phase 3 | Pending |
+| SEO-01 | Phase 3 | Pending |
+| SEO-02 | Phase 2 | Pending |
+| SEO-03 | Phase 3 | Pending |
+| LEAD-01 | Phase 5 | Pending |
+| LEAD-02 | Phase 5 | Pending |
+| LEAD-03 | Phase 5 | Pending |
+| LEAD-04 | Phase 5 | Pending |
+| LEAD-05 | Phase 5 | Pending |
+| AUTH-01 | Phase 4 | Pending |
+| AUTH-02 | Phase 4 | Pending |
+| AUTH-03 | Phase 4 | Pending |
+| AUTH-04 | Phase 4 | Pending |
+| CONS-01 | Phase 5 | Pending |
+| CONS-02 | Phase 5 | Pending |
+| CONS-03 | Phase 5 | Pending |
+| OPS-01 | Phase 6 | Pending |
+| OPS-02 | Phase 6 | Pending |
+| OPS-03 | Phase 6 | Pending |
+| OPS-04 | Phase 6 | Pending |
+| OPS-05 | Phase 6 | Pending |
+| OPS-06 | Phase 6 | Pending |
+| OPS-07 | Phase 6 | Pending |
+| OPS-08 | Phase 6 | Pending |
+| OPS-09 | Phase 6 | Pending |
+| OPS-10 | Phase 6 | Pending |
+| INV-01 | Phase 7 | Pending |
+| INV-02 | Phase 7 | Pending |
+| INV-03 | Phase 7 | Pending |
+| INV-04 | Phase 7 | Pending |
+| INV-05 | Phase 6 | Pending |
+| INV-06 | Phase 7 | Pending |
+| CLIENT-01 | Phase 8 | Pending |
+| CLIENT-02 | Phase 8 | Pending |
+| CLIENT-03 | Phase 8 | Pending |
+| KYC-01 | Phase 8 | Pending |
+| KYC-02 | Phase 8 | Pending |
+| KYC-03 | Phase 8 | Pending |
+| CMS-01 | Phase 2 | Pending |
+| CMS-02 | Phase 2 | Pending |
+| KPI-01 | Phase 9 | Pending |
+| KPI-02 | Phase 9 | Pending |
+| KPI-03 | Phase 9 | Pending |
 
 **Coverage:**
 - v1 requirements: 59 total
-- Mapped to phases: 0 pending roadmapper
-- Unmapped: 59
+- Mapped to phases: 59 (Phase 1: 6 · Phase 2: 3 · Phase 3: 12 · Phase 4: 4 · Phase 5: 9 · Phase 6: 11 · Phase 7: 5 · Phase 8: 6 · Phase 9: 3 · Phase 10: 0 — verifies earlier phases)
+- Unmapped: 0
+- Duplicated: 0
 
 ---
 *Requirements defined: 2026-10-25*
