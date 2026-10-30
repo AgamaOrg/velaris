@@ -137,51 +137,78 @@ button {
 
 .hero-overture {
   --hero-progress: 0;
-  background: var(--cream);
+  background: var(--ink);
+  color: var(--cream);
 }
 
 .hero-art {
   position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  transform: scale(calc(1.03 + var(--hero-progress) * 0.05));
-  transform-origin: 60% 30%;
-  opacity: 0.92;
+  inset: -6% 0;
+  transform: translate3d(0, calc(var(--hero-progress) * -5%), 0);
+  will-change: transform;
+}
+
+.hero-art__img {
+  object-fit: cover;
+  object-position: 55% 42%;
+  opacity: 0;
+  transform: scale(1.07);
+  transition:
+    opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1.9s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 1.4s ease;
+}
+
+.hero-overture[data-ready="true"] .hero-art__img {
+  opacity: 1;
+  transform: scale(1.02);
+  animation: slow-zoom 34s ease-in-out 2s infinite alternate;
+}
+
+html[data-light="dawn"] .hero-art__img {
+  filter: saturate(0.92) brightness(0.82) hue-rotate(4deg);
+}
+
+html[data-light="golden"] .hero-art__img {
+  filter: saturate(1.05) sepia(0.1) brightness(0.9);
+}
+
+html[data-light="night"] .hero-art__img {
+  filter: saturate(0.68) brightness(0.55) hue-rotate(-12deg);
+}
+
+html[data-light="night"] .page-hero-art {
+  filter: saturate(0.72) brightness(0.72) hue-rotate(-10deg);
 }
 
 .hero-scrim {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(
-    to bottom,
-    rgba(248, 237, 224, 0.06) 0%,
-    rgba(248, 237, 224, 0.32) 30%,
-    var(--cream) 76%
-  );
+  background:
+    linear-gradient(
+      to top,
+      rgba(10, 11, 9, 0.92) 0%,
+      rgba(10, 11, 9, 0.7) 30%,
+      rgba(10, 11, 9, 0.3) 58%,
+      transparent 82%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(10, 11, 9, 0.5) 0%,
+      rgba(10, 11, 9, 0.12) 22%,
+      transparent 38%
+    );
 }
 
-.hero-overture[data-light="golden"] .hero-scrim {
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 188, 125, 0.14) 0%,
-    rgba(255, 188, 125, 0.24) 30%,
-    var(--cream) 78%
-  );
-}
-
-.hero-overture[data-light="night"] .hero-art,
-html[data-light="night"] .page-hero-art {
-  filter: saturate(0.72) brightness(0.72) hue-rotate(-10deg);
-}
-
-.hero-overture[data-light="night"] .hero-scrim {
-  background: linear-gradient(
-    to bottom,
-    rgba(10, 11, 9, 0.38) 0%,
-    rgba(10, 11, 9, 0.52) 28%,
-    var(--cream) 74%
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    120% 90% at 50% 40%,
+    transparent 55%,
+    rgba(10, 11, 9, 0.35) 100%
   );
 }
 
@@ -190,36 +217,36 @@ html[data-light="night"] .page-hero-art {
   inset: 0;
   pointer-events: none;
   background: radial-gradient(
-    75% 55% at 68% 8%,
-    rgba(255, 188, 125, 0.4),
+    70% 55% at 68% 8%,
+    rgba(255, 188, 125, 0.38),
     transparent 65%
   );
-  opacity: calc(0.3 + var(--hero-progress) * 0.45);
+  opacity: calc(0.25 + var(--hero-progress) * 0.4);
   mix-blend-mode: soft-light;
 }
 
-.hero-overture[data-light="dawn"] .hero-light {
+html[data-light="dawn"] .hero-light {
   background: radial-gradient(
     70% 60% at 30% 10%,
-    rgba(255, 226, 213, 0.6),
+    rgba(255, 226, 213, 0.55),
     transparent 62%
   );
 }
 
-.hero-overture[data-light="night"] .hero-light {
+html[data-light="night"] .hero-light {
   background: radial-gradient(
     70% 60% at 72% 0%,
-    rgba(67, 84, 75, 0.55),
+    rgba(67, 84, 75, 0.5),
     transparent 62%
   );
-  mix-blend-mode: multiply;
-  opacity: 0.55;
+  mix-blend-mode: screen;
+  opacity: 0.35;
 }
 
 .hero-scroll {
   position: absolute;
   right: clamp(1.25rem, 5vw, 5.5rem);
-  bottom: 6.5rem;
+  bottom: 9.5rem;
   z-index: 10;
   display: none;
   align-items: center;
@@ -228,7 +255,7 @@ html[data-light="night"] .page-hero-art {
   font-size: 0.5rem;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: rgba(248, 237, 224, 0.6);
 }
 
 .hero-scroll-line {
@@ -1049,6 +1076,11 @@ dialog::backdrop {
   }
 
   .hero-art {
+    transform: none !important;
+  }
+
+  .hero-art__img {
+    animation: none !important;
     transform: none !important;
   }
 

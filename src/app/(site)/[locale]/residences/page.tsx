@@ -54,7 +54,7 @@ export default async function ResidencesPage({
             ? 'Mula sa isang silid na may maluwang na sala hanggang sa buong palapag na penthouse. Ang bawat plano ay nakaayos sa paligid ng liwanag at tanawin.'
             : 'From a one bedroom with a generous living room to a full-floor penthouse. Every plan is arranged around light and outlook.'
         }
-        layout="poster"
+        layout="editorial"
         meta={
           <div className="flex flex-wrap gap-x-10 gap-y-2 font-sans text-[0.5625rem] uppercase tracking-[0.22em]">
             <span>{fil ? 'Labindalawang uri' : 'Twelve residence types'}</span>

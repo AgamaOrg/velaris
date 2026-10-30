@@ -16,14 +16,20 @@ const dots: Record<LightPhase, string> = {
 export function LightControl({
   locale,
   onDark,
+  compact,
 }: {
   locale: Locale
   onDark?: boolean
+  compact?: boolean
 }) {
   const detailsRef = useRef<HTMLDetailsElement>(null)
   const { light, override, setOverride } = useLight()
   const copy = ui[locale].light
   const options: LightOverride[] = ['auto', ...lightPhases]
+
+  const label = light.ready
+    ? `${copy.hint} — ${copy.phases[light.phase]} ${light.time}`
+    : copy.hint
 
   const choose = (value: LightOverride) => {
     setOverride(value)
@@ -37,26 +43,39 @@ export function LightControl({
       onClick={(event) => event.stopPropagation()}
     >
       <summary
+        aria-label={compact ? label : undefined}
+        title={compact ? label : undefined}
         className={cn(
           'flex cursor-pointer list-none items-center gap-2 font-sans text-[0.625rem] uppercase tracking-[0.2em] transition-colors',
           onDark ? 'text-cream/60 hover:text-cream' : 'text-muted hover:text-ink',
+          compact && 'h-9 w-9 justify-center rounded-full border-0',
+          compact &&
+            (onDark ? 'hover:bg-cream/10' : 'hover:bg-ink/5'),
         )}
       >
         <span
           aria-hidden="true"
-          className={cn('h-1.5 w-1.5 rounded-full', dots[light.phase])}
-        />
-        <span className={cn(light.ready ? 'opacity-100' : 'opacity-70')}>
-          {light.ready ? light.time : copy.hint}
-        </span>
-        <span
           className={cn(
-            'hidden xl:inline',
-            onDark ? 'text-cream/40' : 'text-muted/70',
+            'rounded-full',
+            compact ? 'h-2 w-2' : 'h-1.5 w-1.5',
+            dots[light.phase],
           )}
-        >
-          {light.ready ? copy.phases[light.phase] : ''}
-        </span>
+        />
+        {compact ? null : (
+          <>
+            <span className={cn(light.ready ? 'opacity-100' : 'opacity-70')}>
+              {light.ready ? light.time : copy.hint}
+            </span>
+            <span
+              className={cn(
+                'hidden xl:inline',
+                onDark ? 'text-cream/40' : 'text-muted/70',
+              )}
+            >
+              {light.ready ? copy.phases[light.phase] : ''}
+            </span>
+          </>
+        )}
       </summary>
 
       <div

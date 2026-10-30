@@ -29,6 +29,7 @@ export const ui = {
     },
     cta: {
       book: 'Book a Private Viewing',
+      bookShort: 'Book a Viewing',
       explore: 'Explore the Residences',
       discover: 'Discover',
       viewAll: 'View all',
@@ -103,6 +104,7 @@ export const ui = {
     },
     cta: {
       book: 'Mag-book ng Pribadong Pagtingin',
+      bookShort: 'Mag-book ng Pagtingin',
       explore: 'Tuklasin ang mga Tirahan',
       discover: 'Tuklasin',
       viewAll: 'Tingnan lahat',

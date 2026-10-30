@@ -8,7 +8,6 @@ import { CountUp } from '@/components/site/CountUp'
 import { CtaBand } from '@/components/site/CtaBand'
 import { CoverImage } from '@/components/site/CoverImage'
 import { EditorialSplit } from '@/components/site/EditorialSplit'
-import { Gallery } from '@/components/site/Gallery'
 import { HeroOverture } from '@/components/site/light/HeroOverture'
 import { LandingLoader } from '@/components/site/LandingLoader'
 import { Marquee } from '@/components/site/Marquee'
@@ -50,6 +49,7 @@ export default async function HomePage({
       <LandingLoader locale={locale} />
       <HeroOverture
         locale={locale}
+        image="/dummy_pics/photo-1580587771525-78b9dba3b914.avif"
         footer={
           <div className="flex flex-wrap gap-x-10 gap-y-2 font-sans text-[0.5625rem] uppercase tracking-[0.22em] text-muted">
             <span>{fil ? 'Tatlong tore' : 'Three towers'}</span>
@@ -59,25 +59,25 @@ export default async function HomePage({
         }
       >
         <Reveal variant="clip" delay={100}>
-          <h1 className="display display-xl mt-6 max-w-6xl">
+          <h1 className="display display-xl max-w-6xl text-cream">
             The Velaris
             <br />
             Residences
           </h1>
         </Reveal>
-        <div className="mt-10 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+        <div className="mt-8 flex max-w-xl flex-col gap-7">
           <Reveal variant="left" delay={200}>
-            <p className="lede max-w-md text-muted">
+            <p className="lede text-cream/75">
               {fil
                 ? 'Tatlong tore ng ganap na luho sa gitna ng Bridgetowne. Kung saan ang bawat detalye ay isang imbitasyon sa isang buhay na maayos na nabuhay.'
                 : 'Three towers of absolute luxury in the heart of Bridgetowne. Where every detail is an invitation to a life well lived.'}
             </p>
           </Reveal>
-          <Reveal variant="right" delay={280} className="flex flex-col gap-3 sm:flex-row">
-            <Link href={localePath(locale, '/contact')} className="btn btn-ink">
+          <Reveal variant="up" delay={300} className="flex flex-col gap-3 sm:flex-row">
+            <Link href={localePath(locale, '/contact')} className="btn btn-cream">
               {t.cta.book}
             </Link>
-            <Link href={localePath(locale, '/residences')} className="btn btn-outline">
+            <Link href={localePath(locale, '/residences')} className="btn btn-outline-light">
               {t.cta.explore}
             </Link>
           </Reveal>
@@ -86,7 +86,6 @@ export default async function HomePage({
 
       <Marquee
         text={fil ? 'Isang buhay na binubuo ng tatlong tore' : 'A life composed in three towers'}
-        className="mt-12"
       />
 
       {/* Introduction */}
@@ -152,8 +151,9 @@ export default async function HomePage({
                 </p>
               </>
             }
-            art="/dummy_pics/photo-1580587771525-78b9dba3b914.avif"
-            caption={fil ? 'North Tower · Sala' : 'North Tower · Living room'}
+            art="/dummy_pics/villa-features-1024x690.jpg"
+            caption={fil ? 'Ang hardin · Palanguyan' : 'The grounds · Pool terrace'}
+            ratio="landscape"
             cta={{ href: localePath(locale, '/residences'), label: t.cta.explore }}
           />
         </div>
@@ -237,20 +237,6 @@ export default async function HomePage({
             </div>
           </Reveal>
         </div>
-      </section>
-
-      {/* Gallery */}
-      <section className="section shell">
-        <Gallery
-          items={[
-            { art: '/dummy_pics/Biet-thu-mini-3-tang-co-tum-1.jpg', caption: fil ? 'Ang sala' : 'The living room', title: fil ? 'Buong araw na liwanag' : 'All-day light' },
-            { art: '/dummy_pics/istockphoto-2223376026-612x612.jpg', caption: fil ? 'Ang pool deck' : 'The pool deck' },
-            { art: '/dummy_pics/photo-1580587771525-78b9dba3b914.avif', caption: fil ? 'Ang pasukan' : 'The arrival' },
-            { art: '/dummy_pics/photo-1580587771525-78b9dba3b914.avif', caption: fil ? 'Ang hardin' : 'The garden' },
-            { art: '/dummy_pics/istockphoto-2223376026-612x612.jpg', caption: fil ? 'Ang show gallery' : 'The show gallery' },
-          ]}
-          tall
-        />
       </section>
 
       {/* Developer */}

@@ -27,7 +27,7 @@ function Wordmark({ locale, light }: { locale: Locale; light?: boolean }) {
         width={73}
         height={131}
         priority
-        className="h-10 w-auto md:h-12"
+        className={cn('h-10 w-auto md:h-12', light && 'brightness-0 invert')}
       />
       <span className="inline-grid leading-none">
         <span
@@ -108,7 +108,6 @@ export function Header({ locale }: { locale: Locale }) {
     { label: t.nav.residences, href: '/residences' },
     { label: t.nav.amenities, href: '/amenities' },
     { label: t.nav.location, href: '/location' },
-    { label: t.nav.developer, href: '/developer' },
     { label: t.nav.news, href: '/news' },
   ]
 
@@ -152,6 +151,8 @@ export function Header({ locale }: { locale: Locale }) {
   const isActive = (href: string) =>
     href === '/' ? bare === '/' : bare === href || bare.startsWith(`${href}/`)
 
+  const onHero = bare === '/' && !scrolled && landingReady
+
   return (
     <>
       <header
@@ -164,19 +165,23 @@ export function Header({ locale }: { locale: Locale }) {
         )}
       >
         <div className="shell flex h-20 items-center justify-between gap-6 md:h-24">
-          <Wordmark locale={locale} />
+          <Wordmark locale={locale} light={onHero} />
 
-          <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
+          <nav className="hidden items-center gap-6 xl:flex" aria-label="Primary">
             {items.map((item) => (
               <Link
                 key={item.href}
                 href={localePath(locale, item.href)}
                 aria-current={isActive(item.href) ? 'page' : undefined}
                 className={cn(
-                  'nav-link font-sans text-[0.625rem] font-medium uppercase tracking-[0.2em] transition-colors',
-                  isActive(item.href)
-                    ? 'text-ink'
-                    : 'text-muted hover:text-ink',
+                  'nav-link whitespace-nowrap font-sans text-[0.625rem] font-medium uppercase tracking-[0.2em] transition-colors',
+                  onHero
+                    ? isActive(item.href)
+                      ? 'text-cream'
+                      : 'text-cream/65 hover:text-cream'
+                    : isActive(item.href)
+                      ? 'text-ink'
+                      : 'text-muted hover:text-ink',
                 )}
               >
                 {item.label}
@@ -184,27 +189,33 @@ export function Header({ locale }: { locale: Locale }) {
             ))}
           </nav>
 
-          <div className="hidden items-center gap-5 lg:flex">
-            <LightControl locale={locale} />
-            <LocaleSwitch locale={locale} />
+          <div className="hidden items-center gap-4 xl:flex">
+            <LightControl locale={locale} compact onDark={onHero} />
+            <LocaleSwitch locale={locale} light={onHero} />
             <Link
               href={localePath(locale, '/contact')}
-              className="btn btn-ink !min-h-11 !px-6 !text-[0.5625rem]"
+              className={cn(
+                'btn whitespace-nowrap !min-h-11 !px-5 !text-[0.5625rem]',
+                onHero ? 'btn-cream' : 'btn-ink',
+              )}
             >
-              {t.cta.book}
+              {t.cta.bookShort}
             </Link>
           </div>
 
           <button
             type="button"
             onClick={() => setOpen(true)}
-            className="flex h-11 w-11 flex-col items-center justify-center gap-[5px] rounded-full border border-ink/20 lg:hidden"
+            className={cn(
+              'flex h-11 w-11 flex-col items-center justify-center gap-[5px] rounded-full border xl:hidden',
+              onHero ? 'border-cream/30' : 'border-ink/20',
+            )}
             aria-label={t.header.menu}
             aria-expanded={open}
             aria-controls="site-menu"
           >
-            <span className="block h-px w-5 bg-ink" />
-            <span className="block h-px w-5 bg-ink" />
+            <span className={cn('block h-px w-5', onHero ? 'bg-cream' : 'bg-ink')} />
+            <span className={cn('block h-px w-5', onHero ? 'bg-cream' : 'bg-ink')} />
           </button>
         </div>
       </header>
@@ -215,7 +226,7 @@ export function Header({ locale }: { locale: Locale }) {
           role="dialog"
           aria-modal="true"
           aria-label={t.header.menu}
-          className="fixed inset-0 z-[65] flex flex-col bg-sage-deep text-cream lg:hidden"
+          className="fixed inset-0 z-[65] flex flex-col bg-sage-deep text-cream xl:hidden"
           onClick={() => setOpen(false)}
         >
           <div className="shell flex h-20 items-center justify-between">
@@ -259,9 +270,9 @@ export function Header({ locale }: { locale: Locale }) {
             </div>
             <Link
               href={localePath(locale, '/contact')}
-              className="btn btn-cream !min-h-11 !px-5 !text-[0.5625rem]"
+              className="btn btn-cream whitespace-nowrap !min-h-11 !px-5 !text-[0.5625rem]"
             >
-              {t.cta.book}
+              {t.cta.bookShort}
             </Link>
           </div>
         </div>

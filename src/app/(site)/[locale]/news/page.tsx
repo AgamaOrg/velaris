@@ -54,7 +54,7 @@ export default async function NewsPage({
             : 'Stories about design, neighbourhood, and the quiet way of living at Velaris.'
         }
         tone="cream"
-        layout="top"
+        layout="editorial"
         meta={
           <div className="flex flex-wrap gap-x-10 gap-y-2 font-sans text-[0.5625rem] uppercase tracking-[0.22em]">
             <span>{fil ? 'Disenyo' : 'Design'}</span>
