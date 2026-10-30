@@ -54,7 +54,8 @@ export default async function AmenitiesPage({
             ? 'Anim na pasilidad na nakaayos sa paligid ng isang ideya: ang luho ay nararamdaman sa tahimik na paraan ng paggamit.'
             : 'Six amenities arranged around one idea: luxury is felt in the quiet way a place is used.'
         }
-        art="/art/amenities.svg"
+        tone="cream"
+        layout="center"
         meta={
           <div className="flex flex-wrap gap-x-10 gap-y-2 font-sans text-[0.5625rem] uppercase tracking-[0.22em]">
             <span>{fil ? 'Anim na pasilidad' : 'Six amenities'}</span>
@@ -106,7 +107,7 @@ export default async function AmenitiesPage({
                 </p>
               </>
             }
-            art="/art/amenities.svg"
+            art="/dummy_pics/istockphoto-2223376026-612x612.jpg"
             ratio="landscape"
             reverse
             caption={fil ? 'Ang Sento · Paliguan' : 'The Sento · Bath'}
@@ -118,11 +119,11 @@ export default async function AmenitiesPage({
       <section className="section shell">
         <Gallery
           items={[
-            { art: '/art/amenities.svg', caption: fil ? 'Pool deck' : 'Pool deck' },
-            { art: '/art/residences.svg', caption: fil ? 'Lounge' : 'Lounge' },
-            { art: '/art/panorama.svg', caption: fil ? 'Sky Club' : 'Sky Club' },
-            { art: '/art/hero.svg', caption: fil ? 'Ang hardin' : 'The grounds' },
-            { art: '/art/developer.svg', caption: fil ? 'Fitness atelier' : 'Fitness atelier' },
+            { art: '/dummy_pics/istockphoto-2223376026-612x612.jpg', caption: fil ? 'Pool deck' : 'Pool deck' },
+            { art: '/dummy_pics/photo-1580587771525-78b9dba3b914.avif', caption: fil ? 'Lounge' : 'Lounge' },
+            { art: '/dummy_pics/Biet-thu-mini-3-tang-co-tum-1.jpg', caption: fil ? 'Sky Club' : 'Sky Club' },
+            { art: '/dummy_pics/villa-features-1024x690.jpg', caption: fil ? 'Ang hardin' : 'The grounds' },
+            { art: '/dummy_pics/photo-1580587771525-78b9dba3b914.avif', caption: fil ? 'Fitness atelier' : 'Fitness atelier' },
           ]}
           tall
         />
@@ -139,7 +140,7 @@ export default async function AmenitiesPage({
         }
         primary={{ href: '/contact', label: t.cta.book }}
         secondary={{ href: '/location', label: t.nav.location }}
-        art="/art/amenities.svg"
+        art="/dummy_pics/istockphoto-2223376026-612x612.jpg"
       />
     </>
   )

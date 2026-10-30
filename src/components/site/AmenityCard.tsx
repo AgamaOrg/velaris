@@ -19,7 +19,7 @@ export function AmenityCard({
       delay={index * 70}
       className={cn('group border-t pt-6', light ? 'border-cream/20' : 'border-ink/15')}
     >
-      <div className="relative mb-6 aspect-[4/3] overflow-hidden bg-sand">
+      <div className="sheen relative mb-6 aspect-[4/3] overflow-hidden bg-sand">
         <div
           className="media-cover media-hover absolute inset-0"
           style={{ backgroundImage: `url(${amenity.art})` }}

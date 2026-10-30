@@ -52,7 +52,8 @@ export default async function ContactPage({
             ? 'Ang private viewing ay isang oras kasama ang isang advisor, ang mga modelong yunit, at ang mga hardin. Walang presyon, walang obligasyon.'
             : 'A private viewing is an hour with an advisor, the model residences, and the grounds. No pressure, no obligation.'
         }
-        art="/art/contact.svg"
+        tone="cream"
+        layout="split-reverse"
         meta={
           <div className="flex flex-wrap gap-x-10 gap-y-2 font-sans text-[0.5625rem] uppercase tracking-[0.22em]">
             <span>{fil ? 'Martes–Linggo' : 'Tuesday–Sunday'}</span>
@@ -148,7 +149,7 @@ export default async function ContactPage({
         <Reveal className="relative overflow-hidden border border-ink/15">
           <div
             className="media-cover aspect-[16/9]"
-            style={{ backgroundImage: "url('/art/location.svg')" }}
+            style={{ backgroundImage: "url('/dummy_pics/villa-features-1024x690.jpg')" }}
             aria-hidden="true"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/10 to-transparent" />

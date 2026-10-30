@@ -30,7 +30,7 @@ export function ArticleCard({
     >
       <div
         className={cn(
-          'relative overflow-hidden bg-sand',
+          'sheen relative overflow-hidden bg-sand',
           featured ? 'aspect-[5/4] md:w-1/2' : 'aspect-[4/3]',
         )}
       >

@@ -1,4 +1,5 @@
 import { cn } from '@/lib/cn'
+import { CountUp } from './CountUp'
 import { Reveal } from './Reveal'
 
 type Stat = {
@@ -18,7 +19,7 @@ export function StatBand({
   return (
     <Reveal
       className={cn(
-        'grid grid-cols-2 gap-y-10 border-y md:grid-cols-4',
+        'grid grid-cols-2 gap-y-12 border-y md:grid-cols-4',
         light ? 'border-cream/20' : 'border-ink/15',
         className,
       )}
@@ -27,7 +28,7 @@ export function StatBand({
         <div
           key={stat.label}
           className={cn(
-            'px-2 py-8 md:px-6',
+            'px-2 py-10 md:px-6',
             index % 2 === 1 && 'border-l',
             index > 1 && 'border-t md:border-t-0',
             index === 2 && 'md:border-l',
@@ -40,7 +41,7 @@ export function StatBand({
               light ? 'text-cream' : 'text-ink',
             )}
           >
-            {stat.value}
+            <CountUp value={stat.value} />
           </p>
           <p
             className={cn(

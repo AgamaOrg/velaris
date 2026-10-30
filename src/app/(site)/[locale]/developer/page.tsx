@@ -71,8 +71,8 @@ export default async function DeveloperPage({
             ? 'Ang RHK Land ay pinagsama ang Hongkong Land at Robinsons Land upang itayo ang Velaris sa Bridgetowne.'
             : 'RHK Land brings together Hongkong Land and Robinsons Land to build the Velaris at Bridgetowne.'
         }
-        art="/art/developer.svg"
         dark
+        layout="poster"
         meta={
           <div className="flex flex-wrap gap-x-10 gap-y-2 font-sans text-[0.5625rem] uppercase tracking-[0.22em]">
             <span>Hongkong Land</span>
@@ -100,7 +100,7 @@ export default async function DeveloperPage({
               </p>
             </>
           }
-          art="/art/hero.svg"
+          art="/dummy_pics/villa-features-1024x690.jpg"
           caption="Bridgetowne, Quezon City"
           cta={{ href: localePath(locale, '/contact'), label: t.cta.book }}
         />
@@ -163,10 +163,10 @@ export default async function DeveloperPage({
       <section className="section shell">
         <Gallery
           items={[
-            { art: '/art/developer.svg', caption: fil ? 'Ang pasukan' : 'The arrival' },
-            { art: '/art/residences.svg', caption: fil ? 'Ang sala' : 'The living room' },
-            { art: '/art/amenities.svg', caption: fil ? 'Ang hardin' : 'The grounds' },
-            { art: '/art/hero.svg', caption: fil ? 'Ang mga tore' : 'The towers' },
+            { art: '/dummy_pics/photo-1580587771525-78b9dba3b914.avif', caption: fil ? 'Ang pasukan' : 'The arrival' },
+            { art: '/dummy_pics/photo-1580587771525-78b9dba3b914.avif', caption: fil ? 'Ang sala' : 'The living room' },
+            { art: '/dummy_pics/istockphoto-2223376026-612x612.jpg', caption: fil ? 'Ang hardin' : 'The grounds' },
+            { art: '/dummy_pics/villa-features-1024x690.jpg', caption: fil ? 'Ang mga tore' : 'The towers' },
           ]}
         />
       </section>
@@ -182,7 +182,7 @@ export default async function DeveloperPage({
         }
         primary={{ href: '/contact', label: t.cta.book }}
         secondary={{ href: '/about', label: t.nav.about }}
-        art="/art/developer.svg"
+        art="/dummy_pics/photo-1580587771525-78b9dba3b914.avif"
       />
     </>
   )

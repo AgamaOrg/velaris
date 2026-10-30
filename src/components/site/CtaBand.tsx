@@ -18,7 +18,7 @@ export function CtaBand({
   kicker,
   title,
   body,
-  art = '/art/hero.svg',
+  art = '/dummy_pics/villa-features-1024x690.jpg',
   primary,
   secondary,
 }: CtaBandProps) {
@@ -33,7 +33,7 @@ export function CtaBand({
         className="absolute inset-0 bg-gradient-to-r from-sage-deep via-sage-deep/85 to-sage-deep/40"
         aria-hidden="true"
       />
-      <div className="shell relative z-10 flex flex-col gap-10 py-20 md:flex-row md:items-end md:justify-between md:py-28">
+      <div className="shell relative z-10 flex flex-col gap-12 py-24 md:flex-row md:items-end md:justify-between md:py-36">
         <Reveal className="max-w-3xl">
           <p className="kicker mb-6 text-amber">{kicker}</p>
           <h2 className="display display-lg text-cream text-balance">{title}</h2>

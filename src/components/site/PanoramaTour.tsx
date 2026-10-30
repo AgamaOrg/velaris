@@ -203,7 +203,7 @@ export function PanoramaTour({
 
       {fallback ? (
         <div className="grid grid-cols-3 gap-px bg-cream/15">
-          {[poster, panorama, '/art/residences.svg'].map((image) => (
+          {[poster, panorama, '/dummy_pics/photo-1580587771525-78b9dba3b914.avif'].map((image) => (
             <div key={image} className="relative aspect-[4/3] bg-ink">
               <div
                 className="media-cover absolute inset-0"

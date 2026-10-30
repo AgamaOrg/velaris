@@ -1,10 +1,12 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { cn } from '@/lib/cn'
 import { localePath, ui, type Locale } from '@/lib/i18n'
+import { LightControl } from './light/LightControl'
 
 function barePath(pathname: string | null): string {
   if (!pathname) return '/'
@@ -16,24 +18,37 @@ function Wordmark({ locale, light }: { locale: Locale; light?: boolean }) {
   return (
     <Link
       href={localePath(locale, '/')}
-      className="group inline-flex flex-col leading-none"
+      className="group inline-flex items-center gap-3 leading-none"
       aria-label="The Velaris Residences — home"
     >
-      <span
-        className={cn(
-          'font-display text-[1.35rem] tracking-[0.22em] transition-colors md:text-[1.55rem]',
-          light ? 'text-cream' : 'text-ink',
-        )}
-      >
-        VELARIS
-      </span>
-      <span
-        className={cn(
-          'mt-1 font-sans text-[0.5rem] font-medium tracking-[0.34em]',
-          light ? 'text-cream/55' : 'text-muted',
-        )}
-      >
-        THE RESIDENCES
+      <Image
+        src="/dummy_pics/Frame.svg"
+        alt=""
+        width={73}
+        height={131}
+        priority
+        className="h-10 w-auto md:h-12"
+      />
+      <span className="inline-grid leading-none">
+        <span
+          className={cn(
+            'col-start-1 row-start-1 font-display text-[1.35rem] tracking-[0.22em] transition-colors md:text-[1.55rem]',
+            light ? 'text-cream' : 'text-ink',
+          )}
+        >
+          THE VELARIS
+        </span>
+        <span
+          className={cn(
+            'col-start-1 row-start-2 mt-1 flex justify-between font-sans text-[0.5rem] font-medium tracking-[0.34em]',
+            light ? 'text-cream/55' : 'text-muted',
+          )}
+          aria-hidden="true"
+        >
+          {'RESIDENCES'.split('').map((letter, index) => (
+            <span key={index}>{letter}</span>
+          ))}
+        </span>
       </span>
     </Link>
   )
@@ -86,6 +101,7 @@ export function Header({ locale }: { locale: Locale }) {
   const bare = barePath(pathname)
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [landingReady, setLandingReady] = useState(bare !== '/')
 
   const items = [
     { label: t.nav.about, href: '/about' },
@@ -102,6 +118,19 @@ export function Header({ locale }: { locale: Locale }) {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  useEffect(() => {
+    if (bare !== '/') return
+
+    if (document.documentElement.dataset.landingLoader === 'done') {
+      const frame = window.requestAnimationFrame(() => setLandingReady(true))
+      return () => window.cancelAnimationFrame(frame)
+    }
+
+    const onLandingReady = () => setLandingReady(true)
+    window.addEventListener('landing-loader-done', onLandingReady)
+    return () => window.removeEventListener('landing-loader-done', onLandingReady)
+  }, [bare])
 
   useEffect(() => {
     if (!open) return
@@ -127,6 +156,7 @@ export function Header({ locale }: { locale: Locale }) {
     <>
       <header
         className={cn(
+          bare === '/' && !landingReady && 'opacity-0 pointer-events-none',
           'fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500',
           scrolled
             ? 'border-b border-ink/10 bg-cream/88 backdrop-blur-xl'
@@ -143,7 +173,7 @@ export function Header({ locale }: { locale: Locale }) {
                 href={localePath(locale, item.href)}
                 aria-current={isActive(item.href) ? 'page' : undefined}
                 className={cn(
-                  'font-sans text-[0.625rem] font-medium uppercase tracking-[0.2em] transition-colors',
+                  'nav-link font-sans text-[0.625rem] font-medium uppercase tracking-[0.2em] transition-colors',
                   isActive(item.href)
                     ? 'text-ink'
                     : 'text-muted hover:text-ink',
@@ -154,7 +184,8 @@ export function Header({ locale }: { locale: Locale }) {
             ))}
           </nav>
 
-          <div className="hidden items-center gap-6 lg:flex">
+          <div className="hidden items-center gap-5 lg:flex">
+            <LightControl locale={locale} />
             <LocaleSwitch locale={locale} />
             <Link
               href={localePath(locale, '/contact')}
@@ -221,8 +252,11 @@ export function Header({ locale }: { locale: Locale }) {
             ))}
           </nav>
 
-          <div className="shell flex items-center justify-between gap-4 border-t border-cream/15 py-7">
-            <LocaleSwitch locale={locale} light />
+          <div className="shell flex flex-wrap items-center justify-between gap-4 border-t border-cream/15 py-7">
+            <div className="flex items-center gap-5">
+              <LocaleSwitch locale={locale} light />
+              <LightControl locale={locale} onDark />
+            </div>
             <Link
               href={localePath(locale, '/contact')}
               className="btn btn-cream !min-h-11 !px-5 !text-[0.5625rem]"

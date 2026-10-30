@@ -4,8 +4,10 @@ import { notFound } from 'next/navigation'
 import '@/styles/globals.css'
 import { Footer } from '@/components/site/Footer'
 import { Header } from '@/components/site/Header'
+import { LightProvider } from '@/components/site/light/LightProvider'
 import { StickyCta } from '@/components/site/StickyCta'
 import { isLocale, locales, type Locale } from '@/lib/i18n'
+import { lightBootstrap } from '@/lib/light'
 
 const federo = Federo({
   weight: '400',
@@ -62,7 +64,7 @@ export async function generateMetadata({
     openGraph: {
       type: 'website',
       siteName: 'The Velaris Residences',
-      images: [{ url: '/art/hero.svg', width: 1600, height: 1000, alt: 'The Velaris Residences' }],
+      images: [{ url: '/dummy_pics/villa-features-1024x690.jpg', width: 1024, height: 690, alt: 'The Velaris Residences' }],
     },
   }
 }
@@ -84,19 +86,22 @@ export default async function SiteLayout({
       className={`${federo.variable} ${sourceSerif.variable} ${geist.variable} h-full antialiased`}
     >
       <body id="top" className="flex min-h-full flex-col">
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:font-sans focus:text-[0.625rem] focus:uppercase focus:tracking-[0.2em] focus:text-cream"
-        >
-          {locale === 'fil' ? 'Lumaktaw sa nilalaman' : 'Skip to content'}
-        </a>
-        <Header locale={locale} />
-        <main id="main" className="flex-1">
-          {children}
-        </main>
-        <Footer locale={locale} />
-        <StickyCta locale={locale} />
-        <div className="grain" aria-hidden="true" />
+        <script dangerouslySetInnerHTML={{ __html: lightBootstrap }} />
+        <LightProvider>
+          <a
+            href="#main"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:font-sans focus:text-[0.625rem] focus:uppercase focus:tracking-[0.2em] focus:text-cream"
+          >
+            {locale === 'fil' ? 'Lumaktaw sa nilalaman' : 'Skip to content'}
+          </a>
+          <Header locale={locale} />
+          <main id="main" className="flex-1">
+            {children}
+          </main>
+          <Footer locale={locale} />
+          <StickyCta locale={locale} />
+          <div className="grain" aria-hidden="true" />
+        </LightProvider>
       </body>
     </html>
   )

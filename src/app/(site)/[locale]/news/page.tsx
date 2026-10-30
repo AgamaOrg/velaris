@@ -53,7 +53,8 @@ export default async function NewsPage({
             ? 'Mga kuwento tungkol sa disenyo, kapitbahayan, at ang tahimik na paraan ng pagtira sa Velaris.'
             : 'Stories about design, neighbourhood, and the quiet way of living at Velaris.'
         }
-        art="/art/news.svg"
+        tone="cream"
+        layout="top"
         meta={
           <div className="flex flex-wrap gap-x-10 gap-y-2 font-sans text-[0.5625rem] uppercase tracking-[0.22em]">
             <span>{fil ? 'Disenyo' : 'Design'}</span>
@@ -91,7 +92,7 @@ export default async function NewsPage({
         }
         primary={{ href: '/contact', label: t.cta.book }}
         secondary={{ href: '/residences', label: t.nav.residences }}
-        art="/art/news.svg"
+        art="/dummy_pics/Biet-thu-mini-3-tang-co-tum-1.jpg"
       />
     </>
   )

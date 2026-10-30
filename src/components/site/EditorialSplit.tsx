@@ -40,7 +40,7 @@ export function EditorialSplit({
           reverse ? 'md:order-2 md:col-start-7' : 'md:order-1',
         )}
       >
-        <div className={cn('group relative overflow-hidden bg-sand', ratioClass)}>
+        <div className={cn('group sheen relative overflow-hidden bg-sand', ratioClass)}>
           <div
             className="media-cover media-hover absolute inset-0"
             style={{ backgroundImage: `url(${art})` }}

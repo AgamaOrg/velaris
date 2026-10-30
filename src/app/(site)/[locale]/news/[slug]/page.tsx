@@ -62,7 +62,8 @@ export default async function ArticlePage({
         kicker={`${pick(post.category, locale)} · ${formatDate(post.date, locale)}`}
         title={pick(post.title, locale)}
         intro={pick(post.excerpt, locale)}
-        art={post.art}
+        tone="cream"
+        layout="split"
         meta={
           <div className="flex flex-wrap items-center justify-between gap-4 font-sans text-[0.5625rem] uppercase tracking-[0.22em]">
             <span>The Velaris Journal</span>
@@ -138,7 +139,7 @@ export default async function ArticlePage({
         }
         primary={{ href: '/contact', label: t.cta.book }}
         secondary={{ href: '/residences', label: t.nav.residences }}
-        art="/art/news.svg"
+        art="/dummy_pics/Biet-thu-mini-3-tang-co-tum-1.jpg"
       />
     </>
   )

@@ -29,7 +29,7 @@ export function UnitCard({
     <Link
       href={localePath(locale, `/residences/${unit.slug}`)}
       className={cn(
-        'group relative flex min-h-[25rem] flex-col justify-between overflow-hidden p-6 transition-transform duration-500 hover:-translate-y-1 md:p-7',
+        'group sheen relative flex min-h-[25rem] flex-col justify-between overflow-hidden p-6 transition-transform duration-500 hover:-translate-y-1 md:p-7',
         tone.className,
       )}
     >

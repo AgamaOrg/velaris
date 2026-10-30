@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { CtaBand } from '@/components/site/CtaBand'
+import { DistrictMap } from '@/components/site/DistrictMap'
 import { EditorialSplit } from '@/components/site/EditorialSplit'
 import { PageHero } from '@/components/site/PageHero'
 import { Reveal } from '@/components/site/Reveal'
@@ -54,7 +55,6 @@ export default async function LocationPage({
             ? 'Ang Bridgetowne ay isang distritong nakaayos sa paligid ng ilog at mga berdeng daan — malapit sa lahat, ngunit may sariling ritmo.'
             : 'Bridgetowne is a district arranged around the river and green streets — close to everything, with a rhythm of its own.'
         }
-        art="/art/location.svg"
         meta={
           <div className="flex flex-wrap gap-x-10 gap-y-2 font-sans text-[0.5625rem] uppercase tracking-[0.22em]">
             <span>Bridgetowne, Quezon City</span>
@@ -94,11 +94,9 @@ export default async function LocationPage({
         </div>
 
         <Reveal delay={160} className="mt-16 overflow-hidden border border-ink/15">
-          <div
-            className="media-cover aspect-[16/9]"
-            style={{ backgroundImage: "url('/art/location.svg')" }}
-            aria-hidden="true"
-          />
+          <div className="aspect-[16/9]">
+            <DistrictMap locale={locale} />
+          </div>
         </Reveal>
       </section>
 
@@ -146,7 +144,7 @@ export default async function LocationPage({
               </p>
             </>
           }
-          art="/art/contact.svg"
+          art="/dummy_pics/istockphoto-2223376026-612x612.jpg"
           ratio="landscape"
           reverse
           caption={fil ? 'The Velaris Show Gallery' : 'The Velaris Show Gallery'}
@@ -165,7 +163,7 @@ export default async function LocationPage({
         }
         primary={{ href: '/contact', label: t.cta.book }}
         secondary={{ href: '/amenities', label: t.nav.amenities }}
-        art="/art/location.svg"
+        art="/dummy_pics/villa-features-1024x690.jpg"
       />
     </>
   )

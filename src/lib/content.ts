@@ -1,4 +1,5 @@
 import type { Locale } from './i18n'
+import type { LightPhase } from './light'
 
 export type Localized = {
   en: string
@@ -24,6 +25,7 @@ export type Unit = {
   summary: Localized
   plan: 'a' | 'b' | 'c'
   tone: Tone
+  media?: Partial<Record<LightPhase, string>>
 }
 
 export const homes = {
@@ -270,7 +272,7 @@ export const amenities: Amenity[] = [
       en: 'A Japanese-inspired bath house in stone and warm water, held at the quietest edge of the grounds.',
       fil: 'Isang bath house na inspirasyon ng Hapon, gawa sa bato at maligamgam na tubig, sa pinakatahimik na bahagi ng hardin.',
     },
-    art: '/art/amenities.svg',
+    art: '/dummy_pics/istockphoto-2223376026-612x612.jpg',
   },
   {
     number: '02',
@@ -279,7 +281,7 @@ export const amenities: Amenity[] = [
       en: 'A private lounge and dining room on the thirty-eighth floor, reserved for residents and their guests.',
       fil: 'Pribadong lounge at silid-kainan sa ika-tatlumpu’t walong palapag, para sa mga residente at bisita.',
     },
-    art: '/art/location.svg',
+    art: '/dummy_pics/villa-features-1024x690.jpg',
   },
   {
     number: '03',
@@ -288,7 +290,7 @@ export const amenities: Amenity[] = [
       en: 'Two hectares of planted courts, shaded walks, and a river-facing lawn designed for slow mornings.',
       fil: 'Dalawang ektarya ng hardin, malilim na daan, at lawn na nakaharap sa ilog para sa mahinahong umaga.',
     },
-    art: '/art/hero.svg',
+    art: '/dummy_pics/villa-features-1024x690.jpg',
   },
   {
     number: '04',
@@ -297,7 +299,7 @@ export const amenities: Amenity[] = [
       en: 'A strength and movement studio with natural light, private training rooms, and a lap pool beyond.',
       fil: 'Studio para sa strength at movement na may natural na liwanag, pribadong training room, at lap pool.',
     },
-    art: '/art/residences.svg',
+    art: '/dummy_pics/photo-1580587771525-78b9dba3b914.avif',
   },
   {
     number: '05',
@@ -306,7 +308,7 @@ export const amenities: Amenity[] = [
       en: 'A chef’s kitchen and a twelve-seat table for the evenings that matter, bookable by residents.',
       fil: 'Kusina ng chef at hapag para sa labindalawang tao para sa mahahalagang gabi, maaaring i-book ng residente.',
     },
-    art: '/art/developer.svg',
+    art: '/dummy_pics/photo-1580587771525-78b9dba3b914.avif',
   },
   {
     number: '06',
@@ -315,7 +317,7 @@ export const amenities: Amenity[] = [
       en: 'A resident team that handles the small and large things — arrivals, deliveries, reservations, and travel.',
       fil: 'Team ng residente na humahawak sa maliliit at malalaking bagay — pagdating, delivery, reservation, at paglalakbay.',
     },
-    art: '/art/contact.svg',
+    art: '/dummy_pics/istockphoto-2223376026-612x612.jpg',
   },
 ]
 
@@ -356,7 +358,7 @@ export const news: NewsPost[] = [
         fil: 'Nagtatapos ang pagdating sa isang bintanang walang kurtina, na naglalagay sa mga tore sa tanawin bago tumalikod ang residente patungo sa lift.',
       },
     ],
-    art: '/art/developer.svg',
+    art: '/dummy_pics/photo-1580587771525-78b9dba3b914.avif',
   },
   {
     slug: 'bridgetowne-after-dark',
@@ -377,7 +379,7 @@ export const news: NewsPost[] = [
         fil: 'Nagsimula ang aming pag-aaral ng ilaw sa hardin sa simpleng tuntunin: walang ilaw na dapat makita bilang pinagmulan. Lahat ay sinasalamin o ibinababa.',
       },
     ],
-    art: '/art/location.svg',
+    art: '/dummy_pics/villa-features-1024x690.jpg',
   },
   {
     slug: 'a-note-on-light',
@@ -401,7 +403,7 @@ export const news: NewsPost[] = [
         fil: 'Sa mga planong isa at dalawang silid, ang sala ay nakaharap sa hilaga at ang mga silid sa silangan, kaya gumagalaw ang araw sa buong tirahan.',
       },
     ],
-    art: '/art/residences.svg',
+    art: '/dummy_pics/photo-1580587771525-78b9dba3b914.avif',
   },
   {
     slug: 'inside-the-sento',
@@ -422,7 +424,7 @@ export const news: NewsPost[] = [
         fil: 'Pinili ang bato dahil sa paghawak nito ng init, hindi sa itsura. Sadya ang dilim ng silid upang ang tubig ang pinakamaliwanag na bahagi.',
       },
     ],
-    art: '/art/amenities.svg',
+    art: '/dummy_pics/istockphoto-2223376026-612x612.jpg',
   },
   {
     slug: 'the-last-garden-residences',
@@ -443,7 +445,7 @@ export const news: NewsPost[] = [
         fil: 'Ang silid sa labas ang mahalaga: malilim na lugar para kumain, magbasa, at tumanggap ng bisita, na ang tirahan ay isang hakbang sa likod.',
       },
     ],
-    art: '/art/hero.svg',
+    art: '/dummy_pics/villa-features-1024x690.jpg',
   },
   {
     slug: 'meet-the-makers',
@@ -464,7 +466,7 @@ export const news: NewsPost[] = [
         fil: 'Isang hapag ang studio: arkitekto, landscape, interiors, at sales team, upang ang ipinangako sa brochure ay siyang iginuhit, at ang iginuhit ay siyang itinatayo.',
       },
     ],
-    art: '/art/developer.svg',
+    art: '/dummy_pics/photo-1580587771525-78b9dba3b914.avif',
   },
 ]
 

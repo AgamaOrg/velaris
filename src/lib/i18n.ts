@@ -65,6 +65,33 @@ export const ui = {
       directions: 'Get directions',
       language: 'Language',
     },
+    light: {
+      hint: 'Live light in Bridgetowne',
+      auto: 'Auto',
+      now: 'Now',
+      live: 'Live',
+      preview: 'Preview',
+      move: 'Move the sun',
+      currentAt: 'Current light',
+      scroll: 'Scroll to move the sun',
+      kicker: 'Light through the day',
+      title: 'The residence, at every hour',
+      intro:
+        'Move the sun across the room. The light in Bridgetowne is the same light that will be yours.',
+      status: 'RHK Land · Bridgetowne',
+      phases: {
+        dawn: 'Dawn',
+        day: 'Midday',
+        golden: 'Golden hour',
+        night: 'Night',
+      },
+      lines: {
+        dawn: 'First light arrives cool and low, and the room holds its edges.',
+        day: 'At midday the room is even and bright, with the city held outside.',
+        golden: 'In the late afternoon the west light warms the stone and the timber.',
+        night: 'After dark the room is lit from within, and the city becomes a horizon.',
+      },
+    },
   },
   fil: {
     nav: {
@@ -111,6 +138,33 @@ export const ui = {
       team: 'Ang inyong pribadong team',
       directions: 'Kumuha ng direksyon',
       language: 'Wika',
+    },
+    light: {
+      hint: 'Tunay na liwanag sa Bridgetowne',
+      auto: 'Awtomatiko',
+      now: 'Ngayon',
+      live: 'Live',
+      preview: 'Preview',
+      move: 'Igalaw ang araw',
+      currentAt: 'Kasalukuyang liwanag',
+      scroll: 'I-scroll upang igalaw ang araw',
+      kicker: 'Liwanag sa buong araw',
+      title: 'Ang tirahan, sa bawat oras',
+      intro:
+        'Igalaw ang araw sa silid. Ang liwanag sa Bridgetowne ay ang parehong liwanag na magiging sa iyo.',
+      status: 'RHK Land · Bridgetowne',
+      phases: {
+        dawn: 'Bukang-liwayway',
+        day: 'Tanghali',
+        golden: 'Gintong oras',
+        night: 'Gabi',
+      },
+      lines: {
+        dawn: 'Dumarating ang unang liwanag na malamig at mababa, at hinahawakan ng silid ang mga gilid nito.',
+        day: 'Sa tanghali, pantay at maliwanag ang silid, at nasa labas ang lungsod.',
+        golden: 'Sa hapon, iniinit ng kanlurang liwanag ang bato at kahoy.',
+        night: 'Pagkatapos ng dilim, liwanag mula sa loob ang silid, at abot-tanaw ang lungsod.',
+      },
     },
   },
 } as const

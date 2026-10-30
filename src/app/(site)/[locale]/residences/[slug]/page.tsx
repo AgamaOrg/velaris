@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { CtaBand } from '@/components/site/CtaBand'
 import { FloorPlanViewer } from '@/components/site/FloorPlanViewer'
-import { Gallery } from '@/components/site/Gallery'
+import { LightScrubber } from '@/components/site/light/LightScrubber'
 import { PageHero } from '@/components/site/PageHero'
 import { PanoramaTour } from '@/components/site/PanoramaTour'
 import { Reveal } from '@/components/site/Reveal'
@@ -66,7 +66,8 @@ export default async function UnitPage({
         kicker={`${pick(unit.tower, locale)} · ${unit.beds} ${t.labels.bedrooms.toLowerCase()}`}
         title={name}
         intro={pick(unit.summary, locale)}
-        art="/art/panorama.svg"
+        tone="cream"
+        layout="center"
         tall
         meta={
           <div className="grid grid-cols-2 gap-y-4 font-sans text-[0.5625rem] uppercase tracking-[0.2em] sm:grid-cols-5">
@@ -138,8 +139,8 @@ export default async function UnitPage({
           />
           <Reveal delay={120} className="mt-12">
             <PanoramaTour
-              poster="/art/residences.svg"
-              panorama="/art/panorama.svg"
+              poster="/dummy_pics/photo-1580587771525-78b9dba3b914.avif"
+              panorama="/dummy_pics/Biet-thu-mini-3-tang-co-tum-1.jpg"
               title={name}
               locale={locale}
             />
@@ -149,20 +150,14 @@ export default async function UnitPage({
 
       <section className="section shell">
         <SectionHeading
-          kicker={fil ? 'Mga tanawin' : 'Views'}
-          title={fil ? 'Liwanag sa buong araw.' : 'Light through the day.'}
+          kicker={t.light.kicker}
+          title={t.light.title}
+          intro={t.light.intro}
           size="md"
         />
-        <div className="mt-12">
-          <Gallery
-            items={[
-              { art: '/art/residences.svg', caption: fil ? 'Umaga' : 'Morning' },
-              { art: '/art/panorama.svg', caption: fil ? 'Tanghali' : 'Midday' },
-              { art: '/art/amenities.svg', caption: fil ? 'Hapon' : 'Afternoon' },
-              { art: '/art/hero.svg', caption: fil ? 'Takipsilim' : 'Dusk' },
-            ]}
-          />
-        </div>
+        <Reveal delay={120} className="mt-12">
+          <LightScrubber locale={locale} title={name} images={unit.media} />
+        </Reveal>
       </section>
 
       <section className="section-tight shell">
@@ -194,7 +189,7 @@ export default async function UnitPage({
         }
         primary={{ href: '/contact', label: t.cta.book }}
         secondary={{ href: '/residences', label: t.cta.viewAll }}
-        art="/art/panorama.svg"
+        art="/dummy_pics/Biet-thu-mini-3-tang-co-tum-1.jpg"
       />
     </>
   )

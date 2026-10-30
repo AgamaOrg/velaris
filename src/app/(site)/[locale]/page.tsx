@@ -4,9 +4,12 @@ import { notFound } from 'next/navigation'
 import { AmenityCard } from '@/components/site/AmenityCard'
 import { ArrowLink } from '@/components/site/ArrowLink'
 import { ArticleCard } from '@/components/site/ArticleCard'
+import { CountUp } from '@/components/site/CountUp'
 import { CtaBand } from '@/components/site/CtaBand'
 import { EditorialSplit } from '@/components/site/EditorialSplit'
 import { Gallery } from '@/components/site/Gallery'
+import { HeroOverture } from '@/components/site/light/HeroOverture'
+import { LandingLoader } from '@/components/site/LandingLoader'
 import { Marquee } from '@/components/site/Marquee'
 import { Reveal } from '@/components/site/Reveal'
 import { SectionHeading } from '@/components/site/SectionHeading'
@@ -43,54 +46,53 @@ export default async function HomePage({
 
   return (
     <>
-      {/* Hero */}
-      <section className="hero-fade relative flex min-h-[94svh] flex-col overflow-hidden bg-sand pt-28">
-        <div className="relative z-10 shell flex flex-1 flex-col justify-end pb-10">
-          <Reveal>
-            <p className="kicker text-taupe">RHK Land · Bridgetowne</p>
-          </Reveal>
-          <Reveal delay={100}>
-            <h1 className="display display-xl mt-6 max-w-6xl">
-              The Velaris
-              <br />
-              Residences
-            </h1>
-          </Reveal>
-          <div className="mt-10 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-            <Reveal delay={200}>
-              <p className="lede max-w-md text-muted">
-                {fil
-                  ? 'Tatlong tore ng ganap na luho sa gitna ng Bridgetowne. Kung saan ang bawat detalye ay isang imbitasyon sa isang buhay na maayos na nabuhay.'
-                  : 'Three towers of absolute luxury in the heart of Bridgetowne. Where every detail is an invitation to a life well lived.'}
-              </p>
-            </Reveal>
-            <Reveal delay={280} className="flex flex-col gap-3 sm:flex-row">
-              <Link href={localePath(locale, '/contact')} className="btn btn-ink">
-                {t.cta.book}
-              </Link>
-              <Link href={localePath(locale, '/residences')} className="btn btn-outline">
-                {t.cta.explore}
-              </Link>
-            </Reveal>
-          </div>
-        </div>
-
-        <div className="relative z-10 shell border-t border-ink/15 py-6">
+      <LandingLoader locale={locale} />
+      <HeroOverture
+        locale={locale}
+        footer={
           <div className="flex flex-wrap gap-x-10 gap-y-2 font-sans text-[0.5625rem] uppercase tracking-[0.22em] text-muted">
             <span>{fil ? 'Tatlong tore' : 'Three towers'}</span>
             <span>{homes.address}</span>
             <span>{homes.developer}</span>
           </div>
+        }
+      >
+        <Reveal variant="clip" delay={100}>
+          <h1 className="display display-xl mt-6 max-w-6xl">
+            The Velaris
+            <br />
+            Residences
+          </h1>
+        </Reveal>
+        <div className="mt-10 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+          <Reveal variant="left" delay={200}>
+            <p className="lede max-w-md text-muted">
+              {fil
+                ? 'Tatlong tore ng ganap na luho sa gitna ng Bridgetowne. Kung saan ang bawat detalye ay isang imbitasyon sa isang buhay na maayos na nabuhay.'
+                : 'Three towers of absolute luxury in the heart of Bridgetowne. Where every detail is an invitation to a life well lived.'}
+            </p>
+          </Reveal>
+          <Reveal variant="right" delay={280} className="flex flex-col gap-3 sm:flex-row">
+            <Link href={localePath(locale, '/contact')} className="btn btn-ink">
+              {t.cta.book}
+            </Link>
+            <Link href={localePath(locale, '/residences')} className="btn btn-outline">
+              {t.cta.explore}
+            </Link>
+          </Reveal>
         </div>
-      </section>
+      </HeroOverture>
 
-      <Marquee text={fil ? 'Isang buhay na binubuo ng tatlong tore' : 'A life composed in three towers'} />
+      <Marquee
+        text={fil ? 'Isang buhay na binubuo ng tatlong tore' : 'A life composed in three towers'}
+        className="mt-12"
+      />
 
       {/* Introduction */}
       <section className="section shell">
         <StatBand stats={stats.map((stat) => ({ value: stat.value, label: pick(stat.label, locale) }))} />
 
-        <div className="mt-20 grid gap-12 md:grid-cols-12 md:gap-16">
+        <div className="mt-28 grid gap-14 md:grid-cols-12 md:gap-20">
           <SectionHeading
             className="md:col-span-5"
             kicker={fil ? 'Ang proyekto' : 'The project'}
@@ -118,7 +120,7 @@ export default async function HomePage({
           </Reveal>
         </div>
 
-        <div className="mt-20 grid gap-8 border-t border-ink/15 pt-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-28 grid gap-x-16 gap-y-14 border-t border-ink/15 pt-12 sm:grid-cols-2">
           {philosophy.map((item, index) => (
             <Reveal key={item.title.en} delay={index * 60}>
               <p className="kicker mb-4 text-taupe">{String(index + 1).padStart(2, '0')}</p>
@@ -149,7 +151,7 @@ export default async function HomePage({
                 </p>
               </>
             }
-            art="/art/residences.svg"
+            art="/dummy_pics/photo-1580587771525-78b9dba3b914.avif"
             caption={fil ? 'North Tower · Sala' : 'North Tower · Living room'}
             cta={{ href: localePath(locale, '/residences'), label: t.cta.explore }}
           />
@@ -169,8 +171,8 @@ export default async function HomePage({
           </ArrowLink>
         </div>
 
-        <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {units.slice(0, 4).map((unit, index) => (
+        <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {units.slice(0, 3).map((unit, index) => (
             <UnitCard key={unit.slug} unit={unit} locale={locale} index={index} />
           ))}
         </div>
@@ -191,7 +193,7 @@ export default async function HomePage({
             </ArrowLink>
           </div>
 
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
+          <div className="mt-16 grid gap-10 md:grid-cols-3 md:gap-12">
             {amenities.slice(0, 3).map((amenity, index) => (
               <AmenityCard key={amenity.number} amenity={amenity} locale={locale} index={index} light />
             ))}
@@ -201,12 +203,12 @@ export default async function HomePage({
 
       {/* Location */}
       <section className="section shell">
-        <div className="grid items-center gap-12 md:grid-cols-12 md:gap-16">
+        <div className="grid items-center gap-16 md:grid-cols-12 md:gap-20">
           <Reveal className="md:col-span-6">
             <div className="group relative aspect-[5/4] overflow-hidden bg-sand">
               <div
                 className="media-cover media-hover absolute inset-0"
-                style={{ backgroundImage: "url('/art/location.svg')" }}
+                style={{ backgroundImage: "url('/dummy_pics/villa-features-1024x690.jpg')" }}
                 aria-hidden="true"
               />
             </div>
@@ -237,14 +239,14 @@ export default async function HomePage({
       </section>
 
       {/* Gallery */}
-      <section className="section-tight shell">
+      <section className="section shell">
         <Gallery
           items={[
-            { art: '/art/panorama.svg', caption: fil ? 'Ang sala' : 'The living room', title: fil ? 'Buong araw na liwanag' : 'All-day light' },
-            { art: '/art/amenities.svg', caption: fil ? 'Ang pool deck' : 'The pool deck' },
-            { art: '/art/developer.svg', caption: fil ? 'Ang pasukan' : 'The arrival' },
-            { art: '/art/residences.svg', caption: fil ? 'Ang hardin' : 'The garden' },
-            { art: '/art/contact.svg', caption: fil ? 'Ang show gallery' : 'The show gallery' },
+            { art: '/dummy_pics/Biet-thu-mini-3-tang-co-tum-1.jpg', caption: fil ? 'Ang sala' : 'The living room', title: fil ? 'Buong araw na liwanag' : 'All-day light' },
+            { art: '/dummy_pics/istockphoto-2223376026-612x612.jpg', caption: fil ? 'Ang pool deck' : 'The pool deck' },
+            { art: '/dummy_pics/photo-1580587771525-78b9dba3b914.avif', caption: fil ? 'Ang pasukan' : 'The arrival' },
+            { art: '/dummy_pics/photo-1580587771525-78b9dba3b914.avif', caption: fil ? 'Ang hardin' : 'The garden' },
+            { art: '/dummy_pics/istockphoto-2223376026-612x612.jpg', caption: fil ? 'Ang show gallery' : 'The show gallery' },
           ]}
           tall
         />
@@ -263,20 +265,22 @@ export default async function HomePage({
             }
           />
 
-          <div className="mt-14 grid gap-8 border-t border-ink/15 pt-10 sm:grid-cols-3">
+          <div className="mt-20 grid gap-10 border-t border-ink/15 pt-12 sm:grid-cols-3">
             {[
               { value: '130+', label: fil ? 'Taon ng Hongkong Land' : 'Years of Hongkong Land' },
               { value: '40+', label: fil ? 'Taon ng Robinsons Land' : 'Years of Robinsons Land' },
               { value: '30', label: fil ? 'Ektarya sa Bridgetowne' : 'Hectares at Bridgetowne' },
             ].map((item, index) => (
               <Reveal key={item.label} delay={index * 70}>
-                <p className="display text-5xl">{item.value}</p>
+                <p className="display text-5xl">
+                  <CountUp value={item.value} />
+                </p>
                 <p className="kicker mt-3 text-[0.5625rem] text-muted">{item.label}</p>
               </Reveal>
             ))}
           </div>
 
-          <Reveal delay={160} className="mt-14 max-w-3xl">
+          <Reveal delay={160} className="mt-20 max-w-3xl">
             <p className="display display-md text-balance">
               {fil
                 ? '“Ang luho ay hindi tungkol sa dagdag. Ito ay tungkol sa pag-alis ng anumang hindi kailangan.”'
@@ -302,7 +306,7 @@ export default async function HomePage({
           </ArrowLink>
         </div>
 
-        <div className="mt-12 grid gap-10 md:grid-cols-3">
+        <div className="mt-16 grid gap-12 md:grid-cols-3">
           {news.slice(0, 3).map((post) => (
             <ArticleCard key={post.slug} post={post} locale={locale} />
           ))}

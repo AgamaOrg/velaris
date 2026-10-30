@@ -54,7 +54,8 @@ export default async function AboutPage({
             ? 'Ang Velaris ay hindi itinayo upang maging pinakamalaki. Ito ay itinayo upang maging tama — sa liwanag, sa sukat, at sa tahimik na paraan ng pagtira.'
             : 'The Velaris was not built to be the largest. It was built to be right — in light, in proportion, and in the quiet way a home should live.'
         }
-        tone="sand"
+        tone="cream"
+        layout="split"
         meta={
           <div className="flex flex-wrap gap-x-10 gap-y-2 font-sans text-[0.5625rem] uppercase tracking-[0.22em]">
             <span>{fil ? 'Itinatag ng RHK Land' : 'Developed by RHK Land'}</span>
@@ -87,7 +88,7 @@ export default async function AboutPage({
               </p>
             </>
           }
-          art="/art/residences.svg"
+          art="/dummy_pics/photo-1580587771525-78b9dba3b914.avif"
           caption={fil ? 'North Tower · Sala' : 'North Tower · Living room'}
           ratio="landscape"
           cta={{ href: localePath(locale, '/residences'), label: t.cta.explore }}
@@ -143,11 +144,11 @@ export default async function AboutPage({
       <section className="section shell">
         <Gallery
           items={[
-            { art: '/art/hero.svg', caption: fil ? 'Ang mga tore' : 'The towers' },
-            { art: '/art/amenities.svg', caption: fil ? 'Ang pool deck' : 'The pool deck' },
-            { art: '/art/panorama.svg', caption: fil ? 'Ang sala' : 'The living room' },
-            { art: '/art/location.svg', caption: fil ? 'Ang distrito' : 'The district' },
-            { art: '/art/contact.svg', caption: fil ? 'Ang show gallery' : 'The show gallery' },
+            { art: '/dummy_pics/villa-features-1024x690.jpg', caption: fil ? 'Ang mga tore' : 'The towers' },
+            { art: '/dummy_pics/istockphoto-2223376026-612x612.jpg', caption: fil ? 'Ang pool deck' : 'The pool deck' },
+            { art: '/dummy_pics/Biet-thu-mini-3-tang-co-tum-1.jpg', caption: fil ? 'Ang sala' : 'The living room' },
+            { art: '/dummy_pics/villa-features-1024x690.jpg', caption: fil ? 'Ang distrito' : 'The district' },
+            { art: '/dummy_pics/istockphoto-2223376026-612x612.jpg', caption: fil ? 'Ang show gallery' : 'The show gallery' },
           ]}
           tall
         />

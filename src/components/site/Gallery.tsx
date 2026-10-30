@@ -19,7 +19,7 @@ export function Gallery({
   return (
     <div
       className={cn(
-        'grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4',
+        'grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6',
         className,
       )}
     >
@@ -30,7 +30,7 @@ export function Gallery({
             key={`${item.art}-${index}`}
             delay={index * 70}
             className={cn(
-              'group relative overflow-hidden bg-sand',
+              'group sheen relative overflow-hidden bg-sand',
               featured && 'col-span-2 row-span-2',
               tall ? 'aspect-[3/4]' : 'aspect-square',
               featured && tall && 'aspect-auto',
@@ -46,7 +46,7 @@ export function Gallery({
               aria-hidden="true"
             />
             {item.title || item.caption ? (
-              <div className="absolute inset-x-0 bottom-0 p-4 md:p-6">
+              <div className="absolute inset-x-0 bottom-0 translate-y-1 p-4 opacity-90 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 md:p-6">
                 {item.caption ? (
                   <p className="font-sans text-[0.5rem] uppercase tracking-[0.24em] text-cream/70">
                     {item.caption}
