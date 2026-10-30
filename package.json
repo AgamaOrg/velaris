@@ -2,25 +2,53 @@
   "name": "velaris",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "typegen": "next typegen",
+    "payload:types": "payload generate:types",
+    "payload:importmap": "payload generate:importmap",
+    "migrate": "payload migrate",
+    "migrate:create": "payload migrate:create"
   },
   "dependencies": {
+    "@payloadcms/db-postgres": "^3.91.0",
+    "@payloadcms/email-resend": "^3.91.0",
+    "@payloadcms/next": "^3.91.0",
+    "@payloadcms/richtext-lexical": "^3.91.0",
+    "@payloadcms/storage-vercel-blob": "^3.91.0",
+    "@vercel/blob": "^2.3.1",
+    "@vercel/functions": "^3.10.3",
+    "drizzle-orm": "^0.45.2",
+    "graphql": "^16.14.2",
     "next": "16.4.2",
+    "payload": "^3.91.0",
+    "pg": "^8.20.0",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "server-only": "^0.0.1",
+    "sharp": "^0.35.5",
+    "undici": "^7.29.1",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",
     "@types/node": "^20",
+    "@types/pg": "^8.20.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.4.2",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^6.0.3"
+  },
+  "overrides": {
+    "undici": "7.29.1"
   }
 }

@@ -13,7 +13,7 @@ A two-product platform built in dependency order: first the toolchain, deploy to
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [ ] **Phase 1: Foundation & Guardrails** - Working toolchain, production topology, and a frozen URL contract
-- [ ] **Phase 2: Content Model, Design System & Public Shell** - Editorial schema, legacy import, and a design system editors cannot break
+- [ ] **Phase 2: Design System, Aesthetic Shell & Public Flow** - A fully navigable eight-page public shell that proves the brand's visual language and page flow
 - [ ] **Phase 3: Public Site, Unit Pages & SEO Parity** - Eight editorial pages, 12 unit pages, tours, and one-hop legacy redirects
 - [ ] **Phase 4: Identity, RBAC, Audit & Ops Shell** - Server-side role enforcement and an append-only audit trail before any PII
 - [ ] **Phase 5: Lead Capture, Consent & Tour Booking** - Consented, attributable leads and confirmed show-gallery tours
@@ -38,16 +38,17 @@ Decimal phases appear between their surrounding integers in numeric order.
   5. `migrate`, `generate:types`, `lint`, `typecheck`, and `build` all run from documented npm scripts and pass from a clean clone in CI, failing on generated-type drift.
 **Plans**: TBD
 
-### Phase 2: Content Model, Design System & Public Shell
-**Goal**: Editors own the entire content surface — eight pages, 12 unit types, amenities, news, media, SEO metadata, and translations — through a schema that makes public price fields structurally impossible and a design system they cannot break.
+### Phase 2: Design System, Aesthetic Shell & Public Flow
+**Goal**: A prospect can move through the entire public journey — Home, About, Residences, a representative unit, Amenities, Location, Developer, News, and Contact — on a fully styled responsive shell that proves the brand's visual language before content migration, so the design system and page flow are approved on sight.
 **Mode:** mvp
 **Depends on**: Phase 1
 **Requirements**: CMS-01, CMS-02, SEO-02
 **Success Criteria** (what must be TRUE):
-  1. An editor publishes a page, a unit type, an amenity, and a news post in Payload, previewing the live layout before publish, with no developer involvement.
-  2. An editor cannot assemble a layout outside the approved block library, and every published page matches the design system at desktop and mobile widths.
-  3. All 58 legacy news posts and the full unit-type set import with original slugs, dates, de-personalized bylines, and images intact, and the import report shows zero unresolved required fields.
-  4. Every content type carries an English and a Filipino value, and the editor sees translation completeness per record before publish.
+  1. A reviewer navigates the full eight-page public flow on desktop, tablet, and 360px mobile, and every page shares one header, footer, type scale, spacing rhythm, color token set, and motion language, with the persistent consultation/book-a-viewing invocation never more than one scroll away.
+  2. The design system is codified as tokens plus a locked block library — hero, editorial split, full-bleed gallery, amenity grid, unit selector/card, pull quote, CTA band, and contact — and editors can compose pages only from those blocks in Payload, with no layout, type, or spacing value overridable outside the system at any breakpoint.
+  3. A representative unit page presents a legible floor plan, a 360-tour poster with a non-3D fallback, and a gallery, and every page passes visual QA at 360/768/1440px with no overflow, no WCAG 2.2 AA contrast failure, near-zero CLS, and no motion under prefers-reduced-motion.
+  4. The EN/FIL switch renders the same shell on per-locale URLs with no layout shift, and every content type carries an English and a Filipino value with translation completeness visible per record before publish.
+  5. An editor publishes a page, a unit type, an amenity, and a news post in Payload with live preview and zero developer involvement; all 58 legacy news posts and the full unit-type set import with original slugs, dates, de-personalized bylines, and images intact, and the import report shows zero unresolved required fields.
 **Plans**: TBD
 **UI hint**: yes
 
@@ -167,7 +168,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation & Guardrails | 0/TBD | Not started | - |
-| 2. Content Model, Design System & Public Shell | 0/TBD | Not started | - |
+| 2. Design System, Aesthetic Shell & Public Flow | 0/TBD | Not started | - |
 | 3. Public Site, Unit Pages & SEO Parity | 0/TBD | Not started | - |
 | 4. Identity, RBAC, Audit & Ops Shell | 0/TBD | Not started | - |
 | 5. Lead Capture, Consent & Tour Booking | 0/TBD | Not started | - |

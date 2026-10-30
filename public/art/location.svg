@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-label="Abstract map of Bridgetowne and the surrounding city">
+  <defs>
+    <linearGradient id="map" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F8EDE0"/>
+      <stop offset="1" stop-color="#F1E3D3"/>
+    </linearGradient>
+    <linearGradient id="river" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6F8378"/>
+      <stop offset="1" stop-color="#43544B"/>
+    </linearGradient>
+    <radialGradient id="pin" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#FFBC7D"/>
+      <stop offset="1" stop-color="#FFBC7D" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M80 0H0v80" fill="none" stroke="#876F53" stroke-width="0.7" opacity="0.18"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#map)"/>
+  <rect width="1600" height="1000" fill="url(#grid)"/>
+
+  <path d="M-40 690c260-90 430-40 610 40s380 90 590 20 320-60 480-10v300H-40Z" fill="url(#river)" opacity="0.55"/>
+  <path d="M-40 720c260-80 430-30 610 40s380 84 590 16 320-52 480-4" fill="none" stroke="#F8EDE0" stroke-width="2" opacity="0.35"/>
+
+  <g fill="#E8D8C5" stroke="#876F53" stroke-width="1" opacity="0.65">
+    <rect x="180" y="220" width="200" height="130" rx="8"/>
+    <rect x="430" y="180" width="150" height="170" rx="8"/>
+    <rect x="640" y="240" width="230" height="120" rx="8"/>
+    <rect x="940" y="190" width="180" height="160" rx="8"/>
+    <rect x="1180" y="250" width="220" height="120" rx="8"/>
+    <rect x="250" y="420" width="170" height="140" rx="8"/>
+    <rect x="520" y="430" width="210" height="120" rx="8"/>
+    <rect x="820" y="410" width="160" height="150" rx="8"/>
+    <rect x="1080" y="430" width="240" height="130" rx="8"/>
+  </g>
+
+  <g fill="#FFE2D5" stroke="#876F53" stroke-width="1" opacity="0.45">
+    <rect x="440" y="600" width="180" height="90" rx="6"/>
+    <rect x="700" y="610" width="150" height="80" rx="6"/>
+    <rect x="940" y="600" width="200" height="90" rx="6"/>
+  </g>
+
+  <g stroke="#876F53" stroke-width="7" fill="none" opacity="0.55">
+    <path d="M0 360h1600"/>
+    <path d="M760 0v1000"/>
+    <path d="M0 160c300 30 520 80 760 60s420-80 840-40"/>
+  </g>
+  <g stroke="#F8EDE0" stroke-width="2" fill="none" opacity="0.6">
+    <path d="M0 360h1600"/>
+    <path d="M760 0v1000"/>
+  </g>
+
+  <circle cx="800" cy="500" r="190" fill="url(#pin)" opacity="0.55"/>
+  <circle cx="800" cy="500" r="96" fill="none" stroke="#FFBC7D" stroke-width="2" opacity="0.7"/>
+  <circle cx="800" cy="500" r="58" fill="none" stroke="#FFBC7D" stroke-width="1.5" opacity="0.85"/>
+  <circle cx="800" cy="500" r="18" fill="#0A0B09"/>
+  <circle cx="800" cy="500" r="8" fill="#FFBC7D"/>
+
+  <g fill="#0A0B09" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" letter-spacing="4" opacity="0.55">
+    <text x="820" y="455">BRIDGETOWNE</text>
+    <text x="1180" y="640">PASIG RIVER</text>
+    <text x="160" y="140">ORTIGAS CENTER</text>
+    <text x="1180" y="140">BGC</text>
+  </g>
+</svg>

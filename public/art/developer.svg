@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-label="Abstract architectural facade with vertical fins and warm light">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F1E3D3"/>
+      <stop offset="1" stop-color="#E8D8C5"/>
+    </linearGradient>
+    <linearGradient id="light" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFE2D5"/>
+      <stop offset="0.55" stop-color="#FFBC7D"/>
+      <stop offset="1" stop-color="#876F53"/>
+    </linearGradient>
+    <linearGradient id="fin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#43544B"/>
+      <stop offset="1" stop-color="#2C3A33"/>
+    </linearGradient>
+    <pattern id="floors" width="1" height="58" patternUnits="userSpaceOnUse">
+      <path d="M0 0h1200" stroke="#F8EDE0" stroke-width="1" opacity="0.16"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="1500" fill="url(#bg)"/>
+
+  <rect x="0" y="0" width="1200" height="1080" fill="url(#light)" opacity="0.32"/>
+
+  <g>
+    <rect x="90" y="120" width="1020" height="1080" fill="#0A0B09" opacity="0.92"/>
+    <rect x="90" y="120" width="1020" height="1080" fill="url(#floors)"/>
+  </g>
+
+  <g fill="url(#fin)">
+    <rect x="120" y="90" width="46" height="1140"/>
+    <rect x="220" y="90" width="46" height="1140"/>
+    <rect x="320" y="90" width="46" height="1140"/>
+    <rect x="420" y="90" width="46" height="1140"/>
+    <rect x="520" y="90" width="46" height="1140"/>
+    <rect x="620" y="90" width="46" height="1140"/>
+    <rect x="720" y="90" width="46" height="1140"/>
+    <rect x="820" y="90" width="46" height="1140"/>
+    <rect x="920" y="90" width="46" height="1140"/>
+    <rect x="1020" y="90" width="46" height="1140"/>
+  </g>
+
+  <g fill="#FFBC7D" opacity="0.5">
+    <rect x="150" y="360" width="16" height="58" rx="2"/>
+    <rect x="250" y="720" width="16" height="58" rx="2"/>
+    <rect x="450" y="480" width="16" height="58" rx="2"/>
+    <rect x="750" y="300" width="16" height="58" rx="2"/>
+    <rect x="850" y="840" width="16" height="58" rx="2"/>
+    <rect x="1050" y="600" width="16" height="58" rx="2"/>
+  </g>
+
+  <rect x="0" y="1180" width="1200" height="320" fill="#D8C4AC"/>
+  <path d="M420 1180v-90c0-99 81-180 180-180s180 81 180 180v90Z" fill="#0A0B09" opacity="0.85"/>
+  <path d="M420 1180v-90c0-99 81-180 180-180s180 81 180 180v90" fill="none" stroke="#FFBC7D" stroke-width="4" opacity="0.5"/>
+
+  <g stroke="#43544B" stroke-width="5" fill="none" opacity="0.55">
+    <path d="M140 1260c0-70 20-122 60-160"/>
+    <path d="M180 1260c30-40 70-60 120-60"/>
+    <path d="M1040 1260c0-70-20-122-60-160"/>
+    <path d="M1000 1260c-30-40-70-60-120-60"/>
+  </g>
+</svg>

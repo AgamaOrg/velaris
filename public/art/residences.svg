@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-label="Abstract interior with an arched window and warm light">
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F1E3D3"/>
+      <stop offset="1" stop-color="#E8D8C5"/>
+    </linearGradient>
+    <linearGradient id="light" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFE2D5"/>
+      <stop offset="1" stop-color="#FFBC7D"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#D8C4AC"/>
+      <stop offset="1" stop-color="#C5AE95"/>
+    </linearGradient>
+    <linearGradient id="view" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFE2D5"/>
+      <stop offset="0.6" stop-color="#FFBC7D"/>
+      <stop offset="1" stop-color="#876F53"/>
+    </linearGradient>
+    <clipPath id="arch">
+      <path d="M300 1180V620c0-166 134-300 300-300s300 134 300 300v560Z"/>
+    </clipPath>
+  </defs>
+
+  <rect width="1200" height="1500" fill="url(#wall)"/>
+  <rect y="1120" width="1200" height="380" fill="url(#floor)"/>
+
+  <path d="M300 1180V620c0-166 134-300 300-300s300 134 300 300v560Z" fill="url(#view)"/>
+  <g clip-path="url(#arch)" opacity="0.75">
+    <circle cx="760" cy="470" r="150" fill="#FFF3E6" opacity="0.75"/>
+    <path d="M300 980c120-90 260-130 430-120s270 60 470 150v190H300Z" fill="#43544B" opacity="0.55"/>
+    <path d="M300 1060c150-70 290-90 450-70s280 60 450 120v70H300Z" fill="#2C3A33" opacity="0.5"/>
+  </g>
+  <path d="M300 1180V620c0-166 134-300 300-300s300 134 300 300v560" fill="none" stroke="#876F53" stroke-width="10" opacity="0.5"/>
+
+  <g opacity="0.22" fill="#FFF6EA">
+    <path d="M300 1180 0 1500h340l120-320Z"/>
+    <path d="M900 1180l300 320H860l-120-320Z"/>
+  </g>
+
+  <g>
+    <ellipse cx="600" cy="1280" rx="390" ry="90" fill="#FFE2D5" opacity="0.8"/>
+    <rect x="360" y="1010" width="480" height="170" rx="24" fill="#43544B"/>
+    <rect x="390" y="1038" width="190" height="74" rx="18" fill="#F8EDE0" opacity="0.18"/>
+    <rect x="600" y="1038" width="190" height="74" rx="18" fill="#F8EDE0" opacity="0.12"/>
+    <rect x="360" y="1160" width="480" height="18" rx="9" fill="#2C3A33"/>
+    <rect x="470" y="1230" width="260" height="14" rx="7" fill="#876F53"/>
+    <rect x="486" y="1212" width="228" height="18" rx="9" fill="#876F53" opacity="0.7"/>
+  </g>
+
+  <g stroke="#43544B" stroke-width="6" fill="none" opacity="0.85">
+    <path d="M900 1120c0-70 20-120 60-160"/>
+    <path d="M940 1120c30-40 70-60 120-60"/>
+    <path d="M948 1060c-10-44 4-78 34-104"/>
+    <path d="M978 1048c34-18 70-18 106-2"/>
+  </g>
+  <path d="M866 1128h150l-20 92h-110Z" fill="#876F53" opacity="0.8"/>
+
+  <g stroke="#876F53" stroke-width="1" opacity="0.35">
+    <path d="M0 1230h1200M0 1300h1200M0 1370h1200M0 1440h1200"/>
+  </g>
+</svg>

@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-label="Abstract illustration of three towers at golden hour">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F8EDE0"/>
+      <stop offset="0.55" stop-color="#FBE6D6"/>
+      <stop offset="1" stop-color="#FFE2D5"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#FFD7A6"/>
+      <stop offset="0.55" stop-color="#FFBC7D" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#FFBC7D" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="t1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#43544B"/>
+      <stop offset="1" stop-color="#2C3A33"/>
+    </linearGradient>
+    <linearGradient id="t2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1D2420"/>
+      <stop offset="1" stop-color="#0A0B09"/>
+    </linearGradient>
+    <linearGradient id="t3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#876F53"/>
+      <stop offset="1" stop-color="#43544B"/>
+    </linearGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F8EDE0" stop-opacity="0"/>
+      <stop offset="1" stop-color="#F8EDE0"/>
+    </linearGradient>
+    <pattern id="win" width="30" height="36" patternUnits="userSpaceOnUse">
+      <rect x="8" y="9" width="14" height="17" fill="#F8EDE0" opacity="0.09"/>
+    </pattern>
+    <pattern id="win2" width="34" height="40" patternUnits="userSpaceOnUse">
+      <rect x="9" y="10" width="16" height="19" fill="#F8EDE0" opacity="0.07"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#sky)"/>
+  <circle cx="1190" cy="300" r="330" fill="url(#sun)"/>
+  <circle cx="1190" cy="300" r="148" fill="#FFBC7D" opacity="0.5"/>
+
+  <g stroke="#876F53" stroke-width="0.8" opacity="0.25">
+    <path d="M0 690h1600"/>
+    <path d="M0 740h1600"/>
+    <path d="M0 800h1600"/>
+    <path d="M0 860h1600"/>
+  </g>
+
+  <g opacity="0.9">
+    <rect x="1030" y="530" width="180" height="390" rx="8" fill="url(#t3)"/>
+    <rect x="1030" y="530" width="180" height="390" rx="8" fill="url(#win2)"/>
+  </g>
+
+  <g>
+    <rect x="760" y="400" width="230" height="520" rx="10" fill="url(#t1)"/>
+    <rect x="760" y="400" width="230" height="520" rx="10" fill="url(#win)"/>
+    <rect x="760" y="400" width="6" height="520" fill="#F8EDE0" opacity="0.12"/>
+  </g>
+
+  <g>
+    <rect x="470" y="300" width="260" height="640" rx="12" fill="url(#t2)"/>
+    <rect x="470" y="300" width="260" height="640" rx="12" fill="url(#win)"/>
+    <rect x="716" y="300" width="6" height="640" fill="#FFBC7D" opacity="0.16"/>
+  </g>
+
+  <g>
+    <rect x="210" y="430" width="220" height="510" rx="10" fill="url(#t1)"/>
+    <rect x="210" y="430" width="220" height="510" rx="10" fill="url(#win)"/>
+    <rect x="424" y="430" width="6" height="510" fill="#F8EDE0" opacity="0.1"/>
+  </g>
+
+  <g fill="none" stroke="#43544B" stroke-width="1" opacity="0.55">
+    <path d="M80 930c70-80 150-120 250-126"/>
+    <path d="M120 930c54-58 112-88 186-94"/>
+    <path d="M1320 930c-40-68-104-104-190-112"/>
+    <path d="M1370 930c-30-46-74-72-134-80"/>
+  </g>
+
+  <rect x="0" y="900" width="1600" height="100" fill="#F1E3D3"/>
+  <rect x="0" y="700" width="1600" height="300" fill="url(#fade)"/>
+</svg>
