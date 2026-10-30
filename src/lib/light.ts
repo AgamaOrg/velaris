@@ -20,7 +20,7 @@ const formatter = new Intl.DateTimeFormat('en-PH', {
   hourCycle: 'h23',
 })
 
-export function manilaClock(now: Date = new Date()): { hour: number; minute: number } {
+function manilaClock(now: Date = new Date()): { hour: number; minute: number } {
   let hour = 0
   let minute = 0
 
@@ -32,7 +32,7 @@ export function manilaClock(now: Date = new Date()): { hour: number; minute: num
   return { hour, minute }
 }
 
-export function phaseFromMinutes(minutes: number): LightPhase {
+function phaseFromMinutes(minutes: number): LightPhase {
   if (minutes >= 300 && minutes < 420) return 'dawn'
   if (minutes >= 420 && minutes < 960) return 'day'
   if (minutes >= 960 && minutes < 1110) return 'golden'

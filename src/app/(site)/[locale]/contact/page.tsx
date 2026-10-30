@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { ContactForm } from '@/components/site/ContactForm'
+import { CoverImage } from '@/components/site/CoverImage'
 import { PageHero } from '@/components/site/PageHero'
 import { Reveal } from '@/components/site/Reveal'
 import { SectionHeading } from '@/components/site/SectionHeading'
@@ -147,11 +148,12 @@ export default async function ContactPage({
 
       <section className="section shell">
         <Reveal className="relative overflow-hidden border border-ink/15">
-          <div
-            className="media-cover aspect-[16/9]"
-            style={{ backgroundImage: "url('/dummy_pics/villa-features-1024x690.jpg')" }}
-            aria-hidden="true"
-          />
+          <div className="relative aspect-[16/9] bg-sand">
+            <CoverImage
+              src="/dummy_pics/villa-features-1024x690.jpg"
+              sizes="100vw"
+            />
+          </div>
           <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/10 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 flex flex-col gap-4 p-6 text-cream md:flex-row md:items-end md:justify-between md:p-10">
             <div>

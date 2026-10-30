@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { cn } from '@/lib/cn'
 import { localePath, type Locale } from '@/lib/i18n'
+import { CoverImage } from './CoverImage'
 import { Reveal } from './Reveal'
 
 type CtaBandProps = {
@@ -24,11 +25,7 @@ export function CtaBand({
 }: CtaBandProps) {
   return (
     <section className="relative overflow-hidden bg-sage-deep text-cream">
-      <div
-        className="absolute inset-0 media-cover opacity-25"
-        style={{ backgroundImage: `url(${art})` }}
-        aria-hidden="true"
-      />
+      <CoverImage src={art} sizes="100vw" className="opacity-25" />
       <div
         className="absolute inset-0 bg-gradient-to-r from-sage-deep via-sage-deep/85 to-sage-deep/40"
         aria-hidden="true"

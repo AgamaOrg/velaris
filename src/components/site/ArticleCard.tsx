@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { cn } from '@/lib/cn'
 import { pick, type NewsPost } from '@/lib/content'
 import { localePath, ui, type Locale } from '@/lib/i18n'
+import { CoverImage } from './CoverImage'
 
 function formatDate(date: string, locale: Locale): string {
   return new Intl.DateTimeFormat(locale === 'fil' ? 'fil-PH' : 'en-PH', {
@@ -34,10 +35,10 @@ export function ArticleCard({
           featured ? 'aspect-[5/4] md:w-1/2' : 'aspect-[4/3]',
         )}
       >
-        <div
-          className="media-cover media-hover absolute inset-0"
-          style={{ backgroundImage: `url(${post.art})` }}
-          aria-hidden="true"
+        <CoverImage
+          src={post.art}
+          sizes={featured ? '(min-width: 768px) 50vw, 100vw' : '(min-width: 768px) 33vw, 100vw'}
+          className="media-hover"
         />
       </div>
       <div className={cn('flex flex-1 flex-col pt-5', featured && 'md:py-2')}>

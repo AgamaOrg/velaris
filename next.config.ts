@@ -4,6 +4,9 @@ import { legacyRedirects } from './src/config/redirects'
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  images: {
+    formats: ['image/avif', 'image/webp'],
+  },
   async redirects() {
     return legacyRedirects
   },

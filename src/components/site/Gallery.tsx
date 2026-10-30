@@ -1,7 +1,8 @@
 import { cn } from '@/lib/cn'
+import { CoverImage } from './CoverImage'
 import { Reveal } from './Reveal'
 
-export type GalleryItem = {
+type GalleryItem = {
   art: string
   caption?: string
   title?: string
@@ -36,10 +37,10 @@ export function Gallery({
               featured && tall && 'aspect-auto',
             )}
           >
-            <div
-              className="media-cover media-hover absolute inset-0"
-              style={{ backgroundImage: `url(${item.art})` }}
-              aria-hidden="true"
+            <CoverImage
+              src={item.art}
+              sizes="(min-width: 768px) 33vw, 50vw"
+              className="media-hover"
             />
             <div
               className="absolute inset-0 bg-gradient-to-t from-ink/55 via-ink/5 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-90"

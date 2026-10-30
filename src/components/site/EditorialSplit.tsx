@@ -1,5 +1,6 @@
 import { cn } from '@/lib/cn'
 import { ArrowLink } from './ArrowLink'
+import { CoverImage } from './CoverImage'
 import { Reveal } from './Reveal'
 
 type EditorialSplitProps = {
@@ -41,10 +42,10 @@ export function EditorialSplit({
         )}
       >
         <div className={cn('group sheen relative overflow-hidden bg-sand', ratioClass)}>
-          <div
-            className="media-cover media-hover absolute inset-0"
-            style={{ backgroundImage: `url(${art})` }}
-            aria-hidden="true"
+          <CoverImage
+            src={art}
+            sizes="(min-width: 768px) 50vw, 100vw"
+            className="media-hover"
           />
           <div
             className="absolute inset-0 bg-gradient-to-t from-ink/25 via-transparent to-transparent"

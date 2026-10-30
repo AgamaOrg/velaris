@@ -13,7 +13,6 @@ import {
 import {
   initialLight,
   isLightPhase,
-  lightPhases,
   readLight,
   type LightOverride,
   type LightState,
@@ -111,5 +110,3 @@ export function useLight() {
   if (!value) throw new Error('useLight must be used within LightProvider')
   return value
 }
-
-export { lightPhases }

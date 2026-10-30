@@ -1,6 +1,7 @@
 import { cn } from '@/lib/cn'
 import { pick, type Amenity } from '@/lib/content'
 import type { Locale } from '@/lib/i18n'
+import { CoverImage } from './CoverImage'
 import { Reveal } from './Reveal'
 
 export function AmenityCard({
@@ -20,10 +21,10 @@ export function AmenityCard({
       className={cn('group border-t pt-6', light ? 'border-cream/20' : 'border-ink/15')}
     >
       <div className="sheen relative mb-6 aspect-[4/3] overflow-hidden bg-sand">
-        <div
-          className="media-cover media-hover absolute inset-0"
-          style={{ backgroundImage: `url(${amenity.art})` }}
-          aria-hidden="true"
+        <CoverImage
+          src={amenity.art}
+          sizes="(min-width: 768px) 33vw, 100vw"
+          className="media-hover"
         />
       </div>
       <div className="flex items-baseline justify-between gap-4">

@@ -1,4 +1,4 @@
-export type RedirectRule = {
+type RedirectRule = {
   source: string
   destination: string
   permanent: boolean

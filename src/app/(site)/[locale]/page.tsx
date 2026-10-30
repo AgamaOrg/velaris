@@ -6,6 +6,7 @@ import { ArrowLink } from '@/components/site/ArrowLink'
 import { ArticleCard } from '@/components/site/ArticleCard'
 import { CountUp } from '@/components/site/CountUp'
 import { CtaBand } from '@/components/site/CtaBand'
+import { CoverImage } from '@/components/site/CoverImage'
 import { EditorialSplit } from '@/components/site/EditorialSplit'
 import { Gallery } from '@/components/site/Gallery'
 import { HeroOverture } from '@/components/site/light/HeroOverture'
@@ -206,10 +207,10 @@ export default async function HomePage({
         <div className="grid items-center gap-16 md:grid-cols-12 md:gap-20">
           <Reveal className="md:col-span-6">
             <div className="group relative aspect-[5/4] overflow-hidden bg-sand">
-              <div
-                className="media-cover media-hover absolute inset-0"
-                style={{ backgroundImage: "url('/dummy_pics/villa-features-1024x690.jpg')" }}
-                aria-hidden="true"
+              <CoverImage
+                src="/dummy_pics/villa-features-1024x690.jpg"
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="media-hover"
               />
             </div>
           </Reveal>

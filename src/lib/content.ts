@@ -1,7 +1,7 @@
 import type { Locale } from './i18n'
 import type { LightPhase } from './light'
 
-export type Localized = {
+type Localized = {
   en: string
   fil: string
 }
