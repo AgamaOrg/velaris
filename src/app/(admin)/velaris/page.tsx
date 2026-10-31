@@ -3,6 +3,8 @@ import type { CSSProperties } from 'react'
 import { createSupabaseServerClient } from '@/lib/supabase/server'
 import { analyticsRanges, getAnalyticsSummary, isAnalyticsRange, type AnalyticsRange } from '@/lib/analytics'
 import AdminSidebar from '../AdminSidebar'
+import AdminBoard from '../AdminBoard'
+import AdminWorkspaceTabs, { AdminAnalyticsTabs, AdminWorkspaceNav } from '../AdminWorkspaceTabs'
 
 export const dynamic = 'force-dynamic'
 
@@ -38,18 +40,14 @@ export default async function VelarisAdminPage({
     : 0
 
   return (
-    <main className="min-h-screen bg-[#e7dbcc] text-[#0a0b09]">
+    <main className="min-h-screen bg-[#d9cbbb] text-[#0a0b09]">
       <AdminSidebar>
-        <div className="mx-auto min-h-screen max-w-[1500px] bg-[#f8ede0] lg:my-4 lg:mr-4 lg:min-h-[calc(100vh-2rem)] lg:rounded-[28px] lg:border lg:border-[#0a0b09]/10 lg:shadow-[0_20px_60px_rgba(67,84,75,0.08)]">
-        <section className="px-5 py-5 sm:px-8 lg:px-12 lg:py-8">
-          <div className="admin-rise mb-7 flex flex-wrap items-center justify-between gap-4 border-b border-[#0a0b09]/10 pb-4 font-sans text-[0.6rem] uppercase tracking-[0.18em] text-[#876f53]">
+        <div className="mx-auto min-h-screen max-w-[1500px] bg-[radial-gradient(circle_at_100%_0%,rgba(213,141,82,0.13),transparent_28%),#f8ede0] lg:my-4 lg:mr-4 lg:min-h-[calc(100vh-2rem)] lg:rounded-[32px] lg:border lg:border-[#0a0b09]/10 lg:shadow-[0_24px_70px_rgba(67,84,75,0.14)]">
+        <section className="px-5 py-5 sm:px-8 lg:px-12 lg:py-7">
+          <div className="admin-rise mb-5 flex flex-wrap items-center justify-between gap-4 font-sans text-[0.6rem] uppercase tracking-[0.18em] text-[#876f53]">
             <div className="flex items-center gap-6">
               <span>Velaris / Workspace</span>
-              <nav className="hidden items-center gap-5 normal-case tracking-normal text-[#6b6459] md:flex" aria-label="Dashboard sections">
-                <a href="#analytics" className="border-b border-[#43544b] pb-1 text-[#0a0b09]">Overview</a>
-                <span className="text-[#6b6459]/50">Content</span>
-                <span className="text-[#6b6459]/50">Leads</span>
-              </nav>
+              <AdminWorkspaceNav />
             </div>
             <div className="flex items-center gap-4">
               <span className="hidden sm:inline">Private team workspace</span>
@@ -58,20 +56,33 @@ export default async function VelarisAdminPage({
               </form>
             </div>
           </div>
-          <header className="admin-rise flex items-end justify-between gap-6 border-b border-[#0a0b09]/10 pb-7">
-            <div>
-              <p className="font-sans text-[0.65rem] uppercase tracking-[0.28em] text-[#876f53]">Workspace overview</p>
-              <h1 className="mt-2 font-serif text-4xl tracking-[-0.04em] sm:text-5xl">Dashboard</h1>
-              <p className="mt-2 text-sm text-[#6b6459]">The quiet intelligence behind every detail.</p>
+          <header className="admin-rise relative overflow-hidden rounded-[26px] bg-[#101713] px-6 py-7 text-[#f8ede0] shadow-[0_16px_34px_rgba(16,23,19,0.16)] sm:px-8 sm:py-9">
+            <div className="pointer-events-none absolute -right-12 -top-20 h-64 w-64 rounded-full border border-[#f8ede0]/10" />
+            <div className="pointer-events-none absolute right-8 top-8 h-36 w-36 rounded-full border border-[#ffbc7d]/15" />
+            <div className="relative z-10 flex items-end justify-between gap-6">
+              <div>
+                <p className="font-sans text-[0.62rem] uppercase tracking-[0.3em] text-[#ffbc7d]/75">Velaris intelligence room</p>
+                <h1 className="mt-3 font-serif text-4xl tracking-[-0.04em] sm:text-6xl">Dashboard</h1>
+                <p className="mt-3 max-w-md text-sm leading-6 text-[#f8ede0]/55">A live view of attention, momentum, and the work moving the residence forward.</p>
+              </div>
+              <div className="hidden text-right sm:block">
+                <p className="font-sans text-[0.58rem] uppercase tracking-[0.18em] text-[#f8ede0]/40">Current view</p>
+                <p className="mt-2 font-serif text-xl">{selectedRange.label}</p>
+              </div>
             </div>
-            <span className="hidden rounded-xl bg-[#43544b] px-4 py-2.5 font-sans text-[0.6rem] uppercase tracking-[0.14em] text-[#f8ede0] sm:inline-flex">Live overview</span>
+            <div className="relative z-10 mt-7 flex items-center justify-between border-t border-[#f8ede0]/10 pt-4">
+              <span className="flex items-center gap-2 font-sans text-[0.58rem] uppercase tracking-[0.16em] text-[#f8ede0]/55"><i className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#ffbc7d]" /> Live first-party data</span>
+              <span className="font-sans text-[0.58rem] uppercase tracking-[0.16em] text-[#f8ede0]/35">Private workspace</span>
+            </div>
           </header>
 
-          <section id="analytics" className="mt-8 scroll-mt-8">
+          <AdminWorkspaceTabs
+            overview={(
+          <section id="analytics" className="scroll-mt-8">
+            <div className="workspace-summary">
             <div className="flex flex-wrap items-end justify-between gap-4">
               <div>
-                <p className="font-sans text-[0.65rem] uppercase tracking-[0.28em] text-[#876f53]">Audience intelligence</p>
-                <h2 className="mt-2 font-serif text-2xl tracking-[-0.03em]">{selectedRange.label} activity.</h2>
+                <h2 className="mt-2 font-serif text-2xl tracking-[-0.03em]">Performance at a glance.</h2>
               </div>
               <div className="flex items-center gap-3">
                 <form method="get">
@@ -91,7 +102,7 @@ export default async function VelarisAdminPage({
                 Analytics are connected and waiting for the first visitor events.
               </div>
             )}
-            <div className="mt-5 grid gap-4 sm:grid-cols-2 xl:grid-cols-6">
+            <div className="relative z-10 mt-7 grid gap-3 sm:grid-cols-2 xl:grid-cols-6">
               {[
                 ['Page views', analytics.pageViews.toLocaleString(), 'Traffic'],
                 ['Clicks', analytics.clicks.toLocaleString(), 'Engagement'],
@@ -100,15 +111,25 @@ export default async function VelarisAdminPage({
                 ['Leads', analytics.leads.toLocaleString(), 'Enquiries'],
                 ['Content', analytics.contentPages.toLocaleString(), 'Published + draft'],
               ].map(([label, value, caption], index) => (
-                <article key={label} className="admin-card admin-rise rounded-2xl border border-[#0a0b09]/10 bg-[#f2e6d7]/50 p-4 [animation-delay:var(--card-delay)]" style={{ '--card-delay': `${120 + index * 70}ms` } as CSSProperties}>
+                <article key={label} className={`admin-card admin-rise group relative overflow-hidden rounded-2xl border border-[#0a0b09]/10 bg-[#f8ede0] p-4 shadow-[0_8px_18px_rgba(67,84,75,0.07)] [animation-delay:var(--card-delay)] ${index < 3 ? 'min-h-32' : 'min-h-28'}`} style={{ '--card-delay': `${120 + index * 70}ms` } as CSSProperties}>
+                  <div className={`absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full border border-[#0a0b09]/8 transition group-hover:scale-110 ${index === 0 ? 'bg-[#43544b]/15 text-[#43544b]' : index === 1 ? 'bg-[#d58d52]/20 text-[#9b5b2e]' : index === 2 ? 'bg-[#876f53]/15 text-[#876f53]' : 'bg-[#f2e6d7] text-[#6b6459]'}`}>
+                    <span className="h-2 w-2 rounded-full bg-current" />
+                  </div>
                   <p className="font-sans text-[0.58rem] uppercase tracking-[0.16em] text-[#6b6459]">{label}</p>
-                  <p className="mt-4 font-serif text-3xl tracking-[-0.04em]">{value}</p>
-                  <p className="mt-2 font-sans text-[0.58rem] uppercase tracking-[0.14em] text-[#876f53]">{caption}</p>
+                  <p className="mt-5 font-serif text-3xl tracking-[-0.05em]">{value}</p>
+                  <div className="mt-2 flex items-center justify-between gap-3">
+                    <p className="font-sans text-[0.58rem] uppercase tracking-[0.14em] text-[#876f53]">{caption}</p>
+                    <span className="font-sans text-[0.55rem] text-[#43544b]">{index < 3 ? 'Live' : 'Tracked'}</span>
+                  </div>
                 </article>
               ))}
             </div>
-            <div className="mt-5 grid gap-5 xl:grid-cols-[1.4fr_0.6fr]">
-              <article className="rounded-2xl border border-[#0a0b09]/10 bg-[#f2e6d7]/50 p-5 sm:p-6">
+            </div>
+            <AdminAnalyticsTabs
+              traffic={(
+            <>
+            <div className="mt-5 grid gap-5 xl:grid-cols-[1.25fr_0.75fr]">
+              <article className="rounded-2xl border border-[#0a0b09]/10 bg-[#f2e6d7]/60 p-5 shadow-[0_8px_24px_rgba(67,84,75,0.04)] sm:p-6">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="font-sans text-[0.6rem] uppercase tracking-[0.2em] text-[#6b6459]">Traffic & engagement</p>
@@ -133,7 +154,7 @@ export default async function VelarisAdminPage({
                   <span>{analytics.daily.at(-1)?.label ?? '30 days'}</span>
                 </div>
               </article>
-              <article className="rounded-2xl border border-[#0a0b09]/10 bg-[#101713] p-5 text-[#f8ede0] sm:p-6">
+              <article className="rounded-2xl border border-[#0a0b09]/10 bg-[#101713] p-5 text-[#f8ede0] shadow-[0_12px_28px_rgba(16,23,19,0.12)] sm:p-6">
                 <p className="font-sans text-[0.6rem] uppercase tracking-[0.2em] text-[#f8ede0]/45">Residence interest</p>
                 <p className="mt-2 font-serif text-xl">What guests explore</p>
                 <div className="mt-6 space-y-4">
@@ -264,7 +285,82 @@ export default async function VelarisAdminPage({
                 </div>
               </article>
             </div>
+            </>
+              )}
+              audience={(
+                <div className="mt-5 grid gap-5 xl:grid-cols-[1.1fr_0.9fr]">
+                  <article className="rounded-2xl border border-[#0a0b09]/10 bg-[#101713] p-6 text-[#f8ede0]">
+                    <p className="font-sans text-[0.6rem] uppercase tracking-[0.2em] text-[#f8ede0]/45">Returning audience</p>
+                    <p className="mt-2 font-serif text-2xl">Retention signal</p>
+                    <div className="mt-8 flex items-center gap-8">
+                      <div className="relative flex h-40 w-40 shrink-0 items-center justify-center rounded-full" style={{ background: `conic-gradient(#ffbc7d ${analytics.retentionRate}%, rgba(248,237,224,0.12) 0)` }}>
+                        <div className="flex h-32 w-32 flex-col items-center justify-center rounded-full bg-[#101713]">
+                          <span className="font-serif text-4xl">{analytics.retentionRate}%</span>
+                          <span className="mt-1 font-sans text-[0.55rem] uppercase tracking-[0.14em] text-[#f8ede0]/45">returning</span>
+                        </div>
+                      </div>
+                      <div className="space-y-5">
+                        <div><p className="font-serif text-2xl">{analytics.sessions}</p><p className="font-sans text-[0.55rem] uppercase tracking-[0.14em] text-[#f8ede0]/45">total sessions</p></div>
+                        <div><p className="font-serif text-2xl">{analytics.returningSessions}</p><p className="font-sans text-[0.55rem] uppercase tracking-[0.14em] text-[#f8ede0]/45">repeat sessions</p></div>
+                      </div>
+                    </div>
+                  </article>
+                  <article className="rounded-2xl border border-[#0a0b09]/10 bg-[#f2e6d7]/60 p-6">
+                    <p className="font-sans text-[0.6rem] uppercase tracking-[0.2em] text-[#6b6459]">Residence interest</p>
+                    <p className="mt-2 font-serif text-2xl">What guests explore</p>
+                    <div className="mt-7 space-y-5">
+                      {analytics.residenceInterest.length ? analytics.residenceInterest.map((item) => (
+                        <div key={item.label}>
+                          <div className="flex justify-between gap-3 font-sans text-xs"><span className="truncate">{item.label}</span><span className="text-[#876f53]">{item.value}</span></div>
+                          <div className="mt-2 h-1.5 rounded-full bg-[#0a0b09]/8"><div className="h-1.5 rounded-full bg-[#43544b]" style={{ width: `${(item.value / maxInterest) * 100}%` }} /></div>
+                        </div>
+                      )) : <p className="text-sm text-[#6b6459]">Residence interest will appear as visitors interact with the site.</p>}
+                    </div>
+                  </article>
+                </div>
+              )}
+              conversion={(
+                <div className="mt-5 grid gap-5 xl:grid-cols-[1fr_1fr]">
+                  <article className="rounded-2xl border border-[#0a0b09]/10 bg-[#f2e6d7]/60 p-6">
+                    <p className="font-sans text-[0.6rem] uppercase tracking-[0.2em] text-[#6b6459]">Conversion path</p>
+                    <p className="mt-2 font-serif text-2xl">From visit to enquiry</p>
+                    <div className="mt-8 space-y-5">
+                      {[
+                        ['Visits', analytics.sessions, '#43544b'],
+                        ['Views', analytics.pageViews, '#5d7569'],
+                        ['Clicks', analytics.clicks, '#d58d52'],
+                        ['Leads', analytics.leads, '#a66f4c'],
+                      ].map(([label, value, color]) => (
+                        <div key={label}>
+                          <div className="flex items-baseline justify-between font-sans text-xs"><span>{label}</span><span className="font-serif text-xl">{value}</span></div>
+                          <div className="mt-2 h-2 rounded-full bg-[#0a0b09]/8"><div className="h-2 rounded-full" style={{ width: `${analytics.sessions ? Math.max(value ? 5 : 0, (Number(value) / Math.max(analytics.sessions, analytics.pageViews, analytics.clicks, analytics.leads, 1)) * 100) : 0}%`, backgroundColor: color as string }} /></div>
+                        </div>
+                      ))}
+                    </div>
+                  </article>
+                  <article className="rounded-2xl bg-[#43544b] p-6 text-[#f8ede0]">
+                    <p className="font-sans text-[0.6rem] uppercase tracking-[0.2em] text-[#f8ede0]/45">Enquiries</p>
+                    <p className="mt-3 font-serif text-7xl tracking-[-0.06em]">{analytics.leads}</p>
+                    <p className="mt-2 font-sans text-[0.58rem] uppercase tracking-[0.14em] text-[#f8ede0]/55">{selectedRange.label} · captured leads</p>
+                    <div className="mt-10 border-t border-[#f8ede0]/15 pt-5">
+                      <p className="font-serif text-xl">Recent signals</p>
+                      <div className="mt-3 divide-y divide-[#f8ede0]/10">
+                        {analytics.recentActivity.length ? analytics.recentActivity.slice(0, 4).map((item) => (
+                          <div key={`${item.occurredAt}-${item.path}`} className="flex items-center gap-3 py-2.5 text-sm">
+                            <span className={`h-1.5 w-1.5 rounded-full ${item.type === 'click' ? 'bg-[#ffbc7d]' : 'bg-[#f8ede0]/60'}`} />
+                            <span className="truncate text-[#f8ede0]/75">{item.label}</span>
+                          </div>
+                        )) : <p className="py-2 text-sm text-[#f8ede0]/50">Activity will appear as visitors explore the site.</p>}
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              )}
+            />
           </section>
+            )}
+            operations={<AdminBoard />}
+          />
 
           <section className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-[#0a0b09]/10 pt-5 font-sans text-xs text-[#6b6459]">
             <p>Signed in as <span className="text-[#0a0b09]">{data.user.email}</span></p>

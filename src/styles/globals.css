@@ -245,6 +245,10 @@ button {
   box-shadow: 0 20px 50px rgba(67, 84, 75, 0.12);
 }
 
+.admin-workspace-detail .workspace-summary {
+  display: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .admin-rise,
   .admin-fade,
