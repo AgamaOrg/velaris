@@ -20,7 +20,11 @@ export async function proxy(request: NextRequest) {
     ? await refreshSupabaseSession(request)
     : undefined
 
-  if (pathname === '/velaris' && !sessionResponse?.user) {
+  if (
+    pathname === '/velaris' &&
+    (request.method === 'GET' || request.method === 'HEAD') &&
+    !sessionResponse?.user
+  ) {
     const loginUrl = request.nextUrl.clone()
     loginUrl.pathname = '/velaris/login'
     return applySecurityHeaders(NextResponse.redirect(loginUrl))
