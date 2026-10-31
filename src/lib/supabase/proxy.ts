@@ -1,7 +1,11 @@
 import { createServerClient } from '@supabase/ssr'
+import type { User } from '@supabase/supabase-js'
 import { NextResponse, type NextRequest } from 'next/server'
 
-export async function refreshSupabaseSession(request: NextRequest) {
+export async function refreshSupabaseSession(request: NextRequest): Promise<{
+  response: NextResponse
+  user: User | null
+}> {
   let response = NextResponse.next({ request })
 
   const supabase = createServerClient(
@@ -25,6 +29,6 @@ export async function refreshSupabaseSession(request: NextRequest) {
     },
   )
 
-  await supabase.auth.getUser()
-  return response
+  const { data } = await supabase.auth.getUser()
+  return { response, user: data.user }
 }

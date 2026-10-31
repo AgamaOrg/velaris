@@ -20,6 +20,12 @@ export async function proxy(request: NextRequest) {
     ? await refreshSupabaseSession(request)
     : undefined
 
+  if (pathname === '/velaris' && !sessionResponse?.user) {
+    const loginUrl = request.nextUrl.clone()
+    loginUrl.pathname = '/velaris/login'
+    return applySecurityHeaders(NextResponse.redirect(loginUrl))
+  }
+
   // -------------------------------------------------------------------------
   // 1. Skip internal routes, API, static assets, and admin
   // -------------------------------------------------------------------------
@@ -32,7 +38,7 @@ export async function proxy(request: NextRequest) {
     pathname.startsWith('/auth') ||
     pathname.includes('.')
   ) {
-    return applySecurityHeaders(sessionResponse ?? NextResponse.next())
+    return applySecurityHeaders(sessionResponse?.response ?? NextResponse.next())
   }
 
   // -------------------------------------------------------------------------
@@ -45,7 +51,7 @@ export async function proxy(request: NextRequest) {
       loginUrl.pathname = '/ops/login'
       return applySecurityHeaders(NextResponse.redirect(loginUrl))
     }
-    return applySecurityHeaders(sessionResponse ?? NextResponse.next())
+    return applySecurityHeaders(sessionResponse?.response ?? NextResponse.next())
   }
 
   // -------------------------------------------------------------------------

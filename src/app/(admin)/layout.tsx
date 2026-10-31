@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Geist, Source_Serif_4 } from 'next/font/google'
 import '@/styles/globals.css'
-import AdminTransitionGate from './AdminTransitionGate'
 
 const sourceSerif = Source_Serif_4({
   subsets: ['latin'],
@@ -29,9 +28,7 @@ export default function AdminLayout({
 }) {
   return (
     <html lang="en" className={`${sourceSerif.variable} ${geist.variable} h-full antialiased`}>
-      <body className="min-h-full bg-zinc-950 font-sans text-zinc-100">
-        <AdminTransitionGate>{children}</AdminTransitionGate>
-      </body>
+      <body className="min-h-full bg-zinc-950 font-sans text-zinc-100">{children}</body>
     </html>
   )
 }
