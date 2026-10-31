@@ -23,6 +23,8 @@
     "@payloadcms/next": "^3.91.0",
     "@payloadcms/richtext-lexical": "^3.91.0",
     "@payloadcms/storage-vercel-blob": "^3.91.0",
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.118.0",
     "@vercel/functions": "^3.10.3",
     "graphql": "^16.14.2",
     "leaflet": "^1.9.4",

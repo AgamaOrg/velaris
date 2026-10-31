@@ -76,10 +76,20 @@ export function ContactForm({
     if (error) setError('')
   }
 
-  const submit = (event: React.FormEvent<HTMLFormElement>) => {
+  const submit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     if (!fields.name.trim() || !fields.email.trim() || !fields.consent) {
       setError(copy.required)
+      return
+    }
+    setError('')
+    const response = await fetch('/api/leads', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...fields, locale }),
+    })
+    if (!response.ok) {
+      setError(locale === 'fil' ? 'Hindi maipadala ang kahilingan. Subukan muli.' : 'We could not send your request. Please try again.')
       return
     }
     setSent(true)

@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import '@/styles/globals.css'
 import { Footer } from '@/components/site/Footer'
 import { Header } from '@/components/site/Header'
+import { AnalyticsTracker } from '@/components/site/AnalyticsTracker'
 import { LightProvider } from '@/components/site/light/LightProvider'
 import { StickyCta } from '@/components/site/StickyCta'
 import { isLocale, locales, type Locale } from '@/lib/i18n'
@@ -100,6 +101,7 @@ export default async function SiteLayout({
           </main>
           <Footer locale={locale} />
           <StickyCta locale={locale} />
+          <AnalyticsTracker />
           <div className="grain" aria-hidden="true" />
         </LightProvider>
       </body>

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import { refreshSupabaseSession } from './lib/supabase/proxy'
 
 /**
  * Next.js 16 Proxy (replaces middleware.ts).
@@ -12,20 +13,26 @@ import type { NextRequest } from 'next/server'
  *
  * NOT an authorization boundary — enforce access in the data layer.
  */
-export function proxy(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
+  const isSupabaseRoute = pathname.startsWith('/velaris') || pathname.startsWith('/auth')
+  const sessionResponse = isSupabaseRoute
+    ? await refreshSupabaseSession(request)
+    : undefined
 
   // -------------------------------------------------------------------------
   // 1. Skip internal routes, API, static assets, and admin
   // -------------------------------------------------------------------------
   if (
     pathname.startsWith('/api') ||
-    pathname.startsWith('/admin') ||
+    pathname.startsWith('/velaris') ||
+    pathname.startsWith('/payload') ||
     pathname.startsWith('/_next') ||
     pathname.startsWith('/graphql') ||
+    pathname.startsWith('/auth') ||
     pathname.includes('.')
   ) {
-    return applySecurityHeaders(NextResponse.next())
+    return applySecurityHeaders(sessionResponse ?? NextResponse.next())
   }
 
   // -------------------------------------------------------------------------
@@ -38,7 +45,7 @@ export function proxy(request: NextRequest) {
       loginUrl.pathname = '/ops/login'
       return applySecurityHeaders(NextResponse.redirect(loginUrl))
     }
-    return applySecurityHeaders(NextResponse.next())
+    return applySecurityHeaders(sessionResponse ?? NextResponse.next())
   }
 
   // -------------------------------------------------------------------------

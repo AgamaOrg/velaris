@@ -161,7 +161,7 @@ export function Header({ locale }: { locale: Locale }) {
           'fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500',
           scrolled
             ? 'border-b border-ink/10 bg-cream/88 backdrop-blur-xl'
-            : 'border-b border-transparent bg-transparent',
+            : 'bg-transparent',
         )}
       >
         <div className="shell flex h-20 items-center justify-between gap-6 md:h-24">
